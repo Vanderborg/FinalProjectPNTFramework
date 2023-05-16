@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="FinalProjectFramework Script">
+
+    <test name="com.Luma Tests">
+
+        <parameter name="useCloudEnv" value="false"></parameter>
+        <parameter name="envName" value="browserstack"></parameter>
+        <parameter name="os" value="windows"></parameter>
+        <parameter name="osVersion" value="11"></parameter>
+        <parameter name="browserName" value="chrome"/>
+        <parameter name="browserVersion" value="113"/>
+        <parameter name="url" value="https://magento.softwaretestingboard.com/"/>
+
+        <classes>
+            <class name="lumatests.LumaTest"></class>
+        </classes>
+
+    </test>
+
+
+</suite>
