@@ -1,8 +1,9 @@
 package nopcommerceenums.creditcard;
 
 public enum CC {
-    CC_NUMBER("6575647567754754754"),
-    CC_CODE("6575");
+    CC_TABLE("cc_table"),
+    CC_NUMBER("cc_number"),
+    CC_CODE("cc_code");
 
     private final String ccCredentials;
 

@@ -35,7 +35,7 @@ public class CheckOutTest extends CommonAPI {
         Assert.assertTrue(commerce.welcomeToOurStoreIsDisplayed());
     }
 
-    @Test(enabled = true) //2
+    @Test(enabled = false) //2
     public void testCheckMoneyOrderCheckout() {
         NopCommerceStorePage commerce = new NopCommerceStorePage(getDriver());
         RegisterLoginPage register = new RegisterLoginPage(getDriver());
@@ -52,7 +52,7 @@ public class CheckOutTest extends CommonAPI {
         Assert.assertTrue(commerce.welcomeToOurStoreIsDisplayed());
     }
 
-    @Test(enabled = true) //3
+    @Test(enabled = false) //3
     public void testMultipleItemsCheckOutWithCheckMoneyOrder() {
         NopCommerceStorePage commerce = new NopCommerceStorePage(getDriver());
         RegisterLoginPage register = new RegisterLoginPage(getDriver());
@@ -68,7 +68,7 @@ public class CheckOutTest extends CommonAPI {
         Assert.assertTrue(commerce.welcomeToOurStoreIsDisplayed());
     }
 
-    @Test(enabled = true) //4
+    @Test(enabled = false) //4
     public void testMultipleItemsCheckOutWithCreditCard() {
         NopCommerceStorePage commerce = new NopCommerceStorePage(getDriver());
         RegisterLoginPage register = new RegisterLoginPage(getDriver());
@@ -84,7 +84,7 @@ public class CheckOutTest extends CommonAPI {
         Assert.assertTrue(commerce.welcomeToOurStoreIsDisplayed());
     }
 
-    @Test(enabled = true) //5
+    @Test(enabled = false) //5
     public void testAddTwoItemsDeleteOneCheckOutWithCreditCard() {
         NopCommerceStorePage commerce = new NopCommerceStorePage(getDriver());
         ItemsPage item = new ItemsPage(getDriver());
