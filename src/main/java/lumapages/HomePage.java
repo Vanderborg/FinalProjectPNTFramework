@@ -32,9 +32,17 @@ public class HomePage extends CommonAPI {
     @FindBy(xpath = "//span[normalize-space()='Buy 3 Luma tees get a 4th free']")
     public WebElement tShirtPromoBox;
 
+    @FindBy(css = "h2[class='title']")
+    public WebElement hotSellersTitle;
+
+    @FindBy(css = "img[alt='Hero Hoodie']")
+    public WebElement heroHoodie;
+
     public HomePage(WebDriver driver){
     PageFactory.initElements(driver, this);
 }
+
+    public boolean verifyLoggedIn() {return checkDisplayed(hotSellersTitle);}
 
     public void navigateToSignIn(){click(signInBttn);
     }
@@ -54,7 +62,7 @@ public class HomePage extends CommonAPI {
 
     public void navigateToContactUs() {click(contactUsBttn);}
 
-    public void naviagteToSinBadTankTop() {
+    public void navigateToSinBadTankTop() {
         HomePage home = new HomePage(getDriver());
         MensPage men = new MensPage(getDriver());
         MensTopsPage tops = new MensTopsPage(getDriver());
@@ -62,8 +70,8 @@ public class HomePage extends CommonAPI {
         men.navigateToTops();
         tops.goToTankTop();
     }
-    public void navigateToDesireeFitnessTee() {
-
+    public void navigateToHeroHoodie() {
+        click(heroHoodie);
     }
 }
 
