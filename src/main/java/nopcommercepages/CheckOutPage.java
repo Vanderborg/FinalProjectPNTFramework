@@ -172,14 +172,14 @@ public class CheckOutPage extends CommonAPI {
             click(clickAll);
         }
         selectFromDropdown(selectCreditCard, card);
-        List<String> cardHolder = List.of(firstName + " " + lastName, connectDB.readMysqlDataBaseColumn("cc_table", "cc_number").toString().replace("[", "").replace("]", ""));
+        List<String> cardHolder = List.of(firstName + " " + lastName, connectDB.readMysqlDataBaseColumn(CC.CC_TABLE.getCcCredentials(), CC.CC_NUMBER.getCcCredentials()).toString());
         List<WebElement> cardHolderElements = Arrays.asList(cardHolderNameField, cardNumberField);
         for (int i = 0; i < cardHolder.size(); i++) {
-            type(cardHolderElements.get(i), cardHolder.get(i));
+            type(cardHolderElements.get(i), cardHolder.get(i).replace("[", "").replace("]", ""));
         }
         selectFromDropdown(selectMonthExpirationDate, expirationMonthDate);
         selectFromDropdown(selectYearExpirationDate, expirationYearDate);
-        type(cardCodeField, connectDB.readMysqlDataBaseColumn("cc_table", "cc_code").toString().replace("[", ""));
+        type(cardCodeField, connectDB.readMysqlDataBaseColumn(CC.CC_TABLE.getCcCredentials(), CC.CC_CODE.getCcCredentials()).toString().replace("[", ""));
         click(continueToConfirmOrderButton);
         Assert.assertTrue(creditCardPaymentIsDisplayed());
         click(confirmCheckOutCompleteButton);
@@ -220,6 +220,10 @@ public class CheckOutPage extends CommonAPI {
         if (Country.UNITED_STATES.getCountry().equals(randomCountry) || Country.CANADA.getCountry().equals(randomCountry)) {
             selectFromDropdown(selectStateDropDown, state);
         }
+    }
+
+    public void enterCCFields() {
+
     }
 
     public void continueWithCreditCardOrCheckMoney(String card, String expirationMonthDate, String expirationYearDate) {
