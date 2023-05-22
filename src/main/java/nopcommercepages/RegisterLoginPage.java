@@ -2,6 +2,7 @@ package nopcommercepages;
 
 import base.CommonAPI;
 import com.github.javafaker.Faker;
+import nopcommerceobjects.Customer;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -86,47 +87,41 @@ public class RegisterLoginPage extends CommonAPI {
         click(checkOutAsGuestBttn);
     }
 
-    public void registerAndLogin(String day, String month, String year) {
-        NopCommerceStorePage commerce = new NopCommerceStorePage(getDriver());
-        password = new Faker().bothify("???????").toLowerCase();
-        email = new Faker().bothify("??????####@gmail.com");
-        commerce.clickOnRegisterButton();
+    public void registerAndLogin(String day, String month, String year, Customer customer) {
+        new NopCommerceHomePage(getDriver()).clickOnRegisterButton();
         click(genderRadioButton);
-        nameFields();
+        nameFields(customer);
         birthDateFields(day, month, year);
-        List<String> pass = Arrays.asList(email, password, password);
+        List<String> pass = Arrays.asList(customer.getEmail(), customer.getPassword(), customer.getPassword());
         List<WebElement> passElements = Arrays.asList(emailField, passwordField, confirmPasswordField);
         for (int i = 0; i < pass.size() ; i++) {
             type(passElements.get(i), pass.get(i));
         }
         doubleClick(registerButton, continueRegisterButton);
-        commerce.clickOnLoginButton();
-        type(inputEmailField, email);
-        type(inputPasswordField, password);
+        new NopCommerceHomePage(getDriver()).clickOnLoginButton();
+        type(inputEmailField, customer.getEmail());
+        type(inputPasswordField, customer.getPassword());
         doubleClick(rememberMeButton, loginButton);
     }
 
     public void logBackIn(){
-        NopCommerceStorePage commerce = new NopCommerceStorePage(getDriver());
         String newPassword = MyAccountPage.newPassword;
-        commerce.clickOnLoginButton();
+        new NopCommerceHomePage(getDriver()).clickOnLoginButton();
         type(emailField, email);
         type(inputPasswordField, newPassword);
         doubleClick(rememberMeButton, loginButton);
     }
 
-    public void changeCustomerInfo(String day, String month, String year) {
+    public void changeCustomerInfo(String day, String month, String year, Customer customer) {
         clearOutCustomerInfo();
-        nameFields();
+        nameFields(customer);
         birthDateFields(day, month, year);
         type(inputEmailField, email);
         click(saveInfoButton);
     }
 
-    public void nameFields() {
-        String firstName = new Faker().name().firstName();
-        String lastName = new Faker().name().lastName();
-        List<String> nameFields = Arrays.asList(firstName, lastName);
+    public void nameFields(Customer customer) {
+        List<String> nameFields = Arrays.asList(customer.getFirstName(), customer.getLastName());
         List<WebElement> nameFieldsElements = Arrays.asList(firstNameField, lastNameField);
         for (int i = 0; i < nameFields.size() ; i++) {
             type(nameFieldsElements.get(i), nameFields.get(i));

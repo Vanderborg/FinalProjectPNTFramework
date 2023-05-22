@@ -1,20 +1,17 @@
 package nopcommercepages;
 
 import base.CommonAPI;
-import com.github.javafaker.Faker;
 import nopcommerceenums.country.Country;
 import nopcommerceenums.creditcard.CC;
+import nopcommerceenums.excel.Excel;
 import nopcommerceobjects.Customer;
+import nopcommerceobjects.State;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.testng.Assert;
 import utility.ConnectDB;
 import utility.ExcelReader;
-import java.awt.*;
-import java.awt.datatransfer.DataFlavor;
-import java.awt.datatransfer.UnsupportedFlavorException;
-import java.io.IOException;
+
 import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
@@ -108,37 +105,33 @@ public class CheckOutPage extends CommonAPI {
         click(confirmCheckOutCompleteButton);
     }
 
-    public void checkOutAsGuestWithCheckMoney(Customer customer) {
-        CartPage cart = new CartPage(getDriver());
-        RegisterLoginPage guest = new RegisterLoginPage(getDriver());
-        cart.clickCheckOut();
-        guest.checkOutAsGuest();
+    public void checkOutAsGuestWithCheckMoney(Customer customer, State state) {
+        new CartPage(getDriver()).clickCheckOut();
+        new RegisterLoginPage(getDriver()).checkOutAsGuest();
         firstNameLastNameEmailEntered(customer);
-        addressAndPhoneNumberEntered(customer);
+        addressAndPhoneNumberEntered(customer, state);
         continueWithCheckMoneyOrder();
     }
 
-    public void checkOutAsGuestWithCreditCard(String card, String expirationMonthDate, String expirationYearDate, Customer customer) {
-        CartPage cart = new CartPage(getDriver());
-        RegisterLoginPage guest = new RegisterLoginPage(getDriver());
-        cart.clickCheckOut();
-        guest.checkOutAsGuest();
+    public void checkOutAsGuestWithCreditCard(String card, String expirationMonthDate, String expirationYearDate, Customer customer, State state) {
+        new CartPage(getDriver()).clickCheckOut();
+        new RegisterLoginPage(getDriver()).checkOutAsGuest();
         firstNameLastNameEmailEntered(customer);
-        addressAndPhoneNumberEntered(customer);
+        addressAndPhoneNumberEntered(customer, state);
         continueWithCreditCard(card, expirationMonthDate, expirationYearDate, customer);
         clickConfirmCheckOutCompleteButton();
     }
 
-    public void registeredUserCheckMoneyCheckout(Customer customer) {
-        addressAndPhoneNumberEntered(customer);
+    public void regUserCheckMoneyCheckout(Customer customer, State state) {
+        addressAndPhoneNumberEntered(customer, state);
         continueWithCheckMoneyOrder();
     }
 
-    public void registeredUserCreditCardCheckout(String card, String expirationMonthDate, String expirationYearDate, Customer customer) {
+    public void regUserCCCheckout(String card, String expirationMonthDate, String expirationYearDate, Customer customer, State state) {
         copyText(billingFirstNameField);
         copyText(billingLastNameField);
-        selectCountryAndState();
-        addressAndPhoneNumberEntered(customer);
+        selectCountryAndState(state);
+        addressAndPhoneNumberEntered(customer, state);
         continueWithCreditCard(card, expirationMonthDate, expirationYearDate, customer);
         clickConfirmCheckOutCompleteButton();
     }
@@ -151,20 +144,19 @@ public class CheckOutPage extends CommonAPI {
     }
 
     public void continueWithCreditCard(String card, String expirationMonthDate, String expirationYearDate, Customer customer) {
-        ConnectDB connectDB = new ConnectDB();
         List<WebElement> click = Arrays.asList(continueToShippingButton, continueToPaymentButton, creditCardRadioButton, continueToPaymentInfoButton);
         for (WebElement clickAll:click) {
             click(clickAll);
         }
         selectFromDropdown(selectCreditCard, card);
-        List<String> cardHolder = List.of(customer.getFirstName() + " " + customer.getLastName(), connectDB.readMysqlDataBaseColumn(CC.CC_TABLE.getCcCredentials(), CC.CC_NUMBER.getCcCredentials()).toString());
+        List<String> cardHolder = List.of(customer.getFirstName() + " " + customer.getLastName(), new ConnectDB().readMysqlDataBaseColumn(CC.CC_TABLE.getCcCredentials(), CC.CC_NUMBER.getCcCredentials()).toString());
         List<WebElement> cardHolderElements = Arrays.asList(cardHolderNameField, cardNumberField);
         for (int i = 0; i < cardHolder.size(); i++) {
             type(cardHolderElements.get(i), cardHolder.get(i).replace("[", "").replace("]", ""));
         }
         selectFromDropdown(selectMonthExpirationDate, expirationMonthDate);
         selectFromDropdown(selectYearExpirationDate, expirationYearDate);
-        type(cardCodeField, connectDB.readMysqlDataBaseColumn(CC.CC_TABLE.getCcCredentials(), CC.CC_CODE.getCcCredentials()).toString().replace("[", ""));
+        type(cardCodeField, new ConnectDB().readMysqlDataBaseColumn(CC.CC_TABLE.getCcCredentials(), CC.CC_CODE.getCcCredentials()).toString().replace("[", ""));
         click(continueToConfirmOrderButton);
     }
 
@@ -176,8 +168,8 @@ public class CheckOutPage extends CommonAPI {
         }
     }
 
-    public void addressAndPhoneNumberEntered(Customer customer) {
-        selectCountryAndState();
+    public void addressAndPhoneNumberEntered(Customer customer, State state) {
+        selectCountryAndState(state);
         List<String> billingFields = Arrays.asList(customer.getCity(), customer.getAddress(), customer.getZipCode(), customer.getPhoneNumber());
         List<WebElement> billingFieldsElements = Arrays.asList(billingCityField, billingAddressField, billingZipCodeField, billingPhoneNumberField);
         for (int i = 0; i < billingFields.size(); i++) {
@@ -185,16 +177,12 @@ public class CheckOutPage extends CommonAPI {
         }
     }
 
-    public void selectCountryAndState() {
-        String path = "C:\\Users\\MSI - Laptop\\Downloads\\Country (1).xlsx";
-        ExcelReader excel = new ExcelReader(path);
-        List<String> countryList = excel.getEntireColumnForGivenHeader("Sheet1", "Country");
+    public void selectCountryAndState(State state) {
+        List<String> countryList = new ExcelReader(Excel.PATH.getExcel()).getEntireColumnForGivenHeader(Excel.SHEET.getExcel(), Excel.HEADER_NAME.getExcel());
         String randomCountry = countryList.get(new Random().nextInt(countryList.size()));
-        int index = countryList.indexOf(randomCountry);
-        String state = new Faker().address().state();
         selectFromDropdown(selectCountryDropDown, randomCountry);
         if (Country.UNITED_STATES.getCountry().equals(randomCountry) || Country.CANADA.getCountry().equals(randomCountry)) {
-            selectFromDropdown(selectStateDropDown, state);
+            selectFromDropdown(selectStateDropDown, state.getState());
         }
     }
 

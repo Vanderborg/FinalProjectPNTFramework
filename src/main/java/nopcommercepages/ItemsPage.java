@@ -117,21 +117,21 @@ public class ItemsPage extends CommonAPI {
         click(addAppleProductToCart);
     }
 
-    public void buildYourOwnComputerGoToShoppingCart(String processorOption, String ramOption, String hDDOption, String oSOption) {
-        NopCommerceStorePage commerce =  new NopCommerceStorePage(getDriver());
+    public void buildComputerAndGoToCart(String processorOption, String ramOption, String hDDOption, String oSOption) {
+        NopCommerceHomePage commerce =  new NopCommerceHomePage(getDriver());
         commerce.addBuildYourComputerToCart();
         inputBuildYourOwnComputer(processorOption, ramOption, hDDOption, oSOption);
         click(goToShoppingCartButton);
     }
 
     public void buildYourOwnComputerAddToCart(String processorOption, String ramOption, String hDDOption, String oSOption) {
-        NopCommerceStorePage commerce =  new NopCommerceStorePage(getDriver());
+        NopCommerceHomePage commerce =  new NopCommerceHomePage(getDriver());
         commerce.addBuildYourComputerToCart();
         inputBuildYourOwnComputer(processorOption, ramOption, hDDOption, oSOption);
     }
 
     public void addComputerAndGiftCardToCart(String processorOption, String ramOption, String hDDOption, String oSOption) {
-        NopCommerceStorePage commerce =  new NopCommerceStorePage(getDriver());
+        NopCommerceHomePage commerce =  new NopCommerceHomePage(getDriver());
         buildYourOwnComputerAddToCart(processorOption, ramOption, hDDOption, oSOption);
         commerce.clickOnNopCommerceLogo();
         commerce.addVirtualGiftCardToCart();

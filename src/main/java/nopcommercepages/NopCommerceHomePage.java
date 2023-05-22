@@ -9,7 +9,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-public class NopCommerceStorePage extends CommonAPI {
+public class NopCommerceHomePage extends CommonAPI {
 
     @FindBy(css = "a[class='ico-register']")
     public WebElement registerButton;
@@ -92,7 +92,7 @@ public class NopCommerceStorePage extends CommonAPI {
     @FindBy(css = ".button-2.product-box-add-to-cart-button")
     public WebElement addAppleToCart2;
 
-    public NopCommerceStorePage(WebDriver driver) {
+    public NopCommerceHomePage(WebDriver driver) {
         PageFactory.initElements(driver, this);
     }
 
@@ -179,7 +179,7 @@ public class NopCommerceStorePage extends CommonAPI {
         addVirtualGiftCardToCart();
         click(nopCommerceBackHomeButton);
         addBuildYourComputerToCart();
-        item.buildYourOwnComputerGoToShoppingCart(processorOption, ramOption, hddOption, osOption);
+        item.buildComputerAndGoToCart(processorOption, ramOption, hddOption, osOption);
     }
 
     public void compareItemsThenAddToCart() {
