@@ -12,6 +12,7 @@ import nopcommerceenums.datesoptions.Day;
 import nopcommerceenums.datesoptions.Month;
 import nopcommerceenums.datesoptions.Year;
 import nopcommerceenums.searchitems.Items;
+import nopcommerceobjects.Customer;
 import nopcommercepages.*;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -29,7 +30,7 @@ public class CheckOutTest extends CommonAPI {
         register.registerAndLogin(String.valueOf(Day._10.getDayValue()), Month.April.getMonthValue(), Year._1994.getYearValue());
         item.buildYourOwnComputerGoToShoppingCart(CPU.CPU_1.getProcessorOption(), Ram.RAM_OPTION_2.getRamOption(), HDD.HDD_1.getHDDOption(), OSOption.OS_OPTION_2.getOSOption());
         cart.clickCheckOut();
-        checkOut.registeredUserCreditCardCheckout(CCProvider.CARD_VISA.getCardProvider(), ExpMonth.July.getCardExpMonth(), ExpYear._2034.getCardExpYear());
+        checkOut.registeredUserCreditCardCheckout(CCProvider.CARD_VISA.getCardProvider(), ExpMonth.July.getCardExpMonth(), ExpYear._2034.getCardExpYear(), new Customer());
         Assert.assertTrue(complete.yourOrderHasBeenSuccessFullyIsDisplayed());
         complete.clickBackToHomeButton();
         Assert.assertTrue(commerce.welcomeToOurStoreIsDisplayed());
@@ -46,7 +47,7 @@ public class CheckOutTest extends CommonAPI {
         register.registerAndLogin(String.valueOf(Day._31.getDayValue()), Month.December.getMonthValue(), Year._1999.getYearValue());
         item.buildYourOwnComputerGoToShoppingCart(CPU.CPU_2.getProcessorOption(), Ram.RAM_OPTION_1.getRamOption(), HDD.HDD_2.getHDDOption(), OSOption.OS_OPTION_1.getOSOption());
         cart.clickCheckOut();
-        checkOut.registeredUserCheckMoneyCheckout();
+        checkOut.registeredUserCheckMoneyCheckout(new Customer());
         Assert.assertTrue(complete.thankYouTextIsDisplayed());
         complete.clickBackToHomeButton();
         Assert.assertTrue(commerce.welcomeToOurStoreIsDisplayed());
@@ -62,7 +63,7 @@ public class CheckOutTest extends CommonAPI {
         register.registerAndLogin(String.valueOf(Day._31.getDayValue()), Month.December.getMonthValue(), Year._2000.getYearValue());
         commerce.addMultipleItemsToCart(CPU.CPU_2.getProcessorOption(), Ram.RAM_OPTION_2.getRamOption(), HDD.HDD_1.getHDDOption(), OSOption.OS_OPTION_2.getOSOption());
         cart.clickCheckOut();
-        checkOut.registeredUserCheckMoneyCheckout();
+        checkOut.registeredUserCheckMoneyCheckout(new Customer());
         Assert.assertTrue(complete.yourOrderHasBeenSuccessFullyIsDisplayed());
         complete.clickBackToHomeButton();
         Assert.assertTrue(commerce.welcomeToOurStoreIsDisplayed());
@@ -78,7 +79,7 @@ public class CheckOutTest extends CommonAPI {
         register.registerAndLogin(String.valueOf(Day._31.getDayValue()), Month.December.getMonthValue(), Year._1994.getYearValue());
         commerce.addMultipleItemsToCart(CPU.CPU_1.getProcessorOption(), Ram.RAM_OPTION_2.getRamOption(), HDD.HDD_1.getHDDOption(), OSOption.OS_OPTION_2.getOSOption());
         cart.clickCheckOut();
-        checkOut.registeredUserCreditCardCheckout(CCProvider.CARD_DISCOVER.getCardProvider(), ExpMonth.December.getCardExpMonth(), ExpYear._2025.getCardExpYear());
+        checkOut.registeredUserCreditCardCheckout(CCProvider.CARD_DISCOVER.getCardProvider(), ExpMonth.December.getCardExpMonth(), ExpYear._2025.getCardExpYear(), new Customer());
         Assert.assertTrue(complete.thankYouTextIsDisplayed());
         complete.clickBackToHomeButton();
         Assert.assertTrue(commerce.welcomeToOurStoreIsDisplayed());
@@ -96,7 +97,7 @@ public class CheckOutTest extends CommonAPI {
         item.addComputerAndGiftCardToCart(CPU.CPU_2.getProcessorOption(), Ram.RAM_OPTION_1.getRamOption(), HDD.HDD_2.getHDDOption(), OSOption.OS_OPTION_1.getOSOption());
         cart.deleteSingleItemAndAddHTC8Phone();
         cart.clickCheckOut();
-        checkOut.registeredUserCreditCardCheckout(CCProvider.CARD_VISA.getCardProvider(), ExpMonth.September.getCardExpMonth(), ExpYear._2034.getCardExpYear());
+        checkOut.registeredUserCreditCardCheckout(CCProvider.CARD_VISA.getCardProvider(), ExpMonth.September.getCardExpMonth(), ExpYear._2034.getCardExpYear(), new Customer());
         Assert.assertTrue(complete.thankYouTextIsDisplayed());
         complete.clickBackToHomeButton();
         Assert.assertTrue(commerce.welcomeToOurStoreIsDisplayed());
@@ -114,7 +115,7 @@ public class CheckOutTest extends CommonAPI {
         item.addComputerAndGiftCardToCart(CPU.CPU_1.getProcessorOption(), Ram.RAM_OPTION_2.getRamOption(), HDD.HDD_1.getHDDOption(), OSOption.OS_OPTION_2.getOSOption());
         cart.deleteSingleItemAndAddHTC8Phone();
         cart.clickCheckOut();
-        checkOut.registeredUserCheckMoneyCheckout();
+        checkOut.registeredUserCheckMoneyCheckout(new Customer());
         Assert.assertTrue(complete.yourOrderHasBeenSuccessFullyIsDisplayed());
         complete.clickBackToHomeButton();
         Assert.assertTrue(commerce.welcomeToOurStoreIsDisplayed());
@@ -128,7 +129,7 @@ public class CheckOutTest extends CommonAPI {
         CheckOutCompletePage complete = new CheckOutCompletePage(getDriver());
         commerce.compareItemsThenAddToCart();
         item.clickShoppingCartToCheckOut();
-        checkOut.checkOutAsGuestWithCreditCard(CCProvider.CARD_VISA.getCardProvider(), ExpMonth.September.getCardExpMonth(), ExpYear._2034.getCardExpYear());
+        checkOut.checkOutAsGuestWithCreditCard(CCProvider.CARD_VISA.getCardProvider(), ExpMonth.September.getCardExpMonth(), ExpYear._2034.getCardExpYear(), new Customer());
         Assert.assertTrue(complete.yourOrderHasBeenSuccessFullyIsDisplayed());
         complete.clickBackToHomeButton();
         Assert.assertTrue(commerce.welcomeToOurStoreIsDisplayed());
@@ -142,7 +143,7 @@ public class CheckOutTest extends CommonAPI {
         CheckOutCompletePage complete = new CheckOutCompletePage(getDriver());
         commerce.compareItemsThenAddToCart();
         item.clickShoppingCartToCheckOut();
-        checkOut.checkOutAsGuestWithCheckMoney();
+        checkOut.checkOutAsGuestWithCheckMoney(new Customer());
         Assert.assertTrue(complete.yourOrderHasBeenSuccessFullyIsDisplayed());
         complete.clickBackToHomeButton();
         Assert.assertTrue(commerce.welcomeToOurStoreIsDisplayed());
@@ -154,7 +155,7 @@ public class CheckOutTest extends CommonAPI {
         CheckOutCompletePage complete = new CheckOutCompletePage(getDriver());
         CheckOutPage checkOut = new CheckOutPage(getDriver());
         commerce.compareItemsDeleteOneAddToCart();
-        checkOut.checkOutAsGuestWithCreditCard(CCProvider.CARD_VISA.getCardProvider(), ExpMonth.September.getCardExpMonth(), ExpYear._2034.getCardExpYear());
+        checkOut.checkOutAsGuestWithCreditCard(CCProvider.CARD_VISA.getCardProvider(), ExpMonth.September.getCardExpMonth(), ExpYear._2034.getCardExpYear(), new Customer());
         Assert.assertTrue(complete.yourOrderHasBeenSuccessFullyIsDisplayed());
         complete.clickBackToHomeButton();
         Assert.assertTrue(commerce.welcomeToOurStoreIsDisplayed());
@@ -166,7 +167,7 @@ public class CheckOutTest extends CommonAPI {
         CheckOutCompletePage complete = new CheckOutCompletePage(getDriver());
         CheckOutPage checkOut = new CheckOutPage(getDriver());
         commerce.compareItemsDeleteOneAddToCart();
-        checkOut.checkOutAsGuestWithCheckMoney();
+        checkOut.checkOutAsGuestWithCheckMoney(new Customer());
         Assert.assertTrue(complete.yourOrderHasBeenSuccessFullyIsDisplayed());
         complete.clickBackToHomeButton();
         Assert.assertTrue(commerce.welcomeToOurStoreIsDisplayed());
@@ -178,7 +179,7 @@ public class CheckOutTest extends CommonAPI {
         CheckOutPage checkOut = new CheckOutPage(getDriver());
         CheckOutCompletePage complete = new CheckOutCompletePage(getDriver());
         commerce.searchAppleAddToCart(Items.APPLE_MAC.getItems());
-        checkOut.checkOutAsGuestWithCreditCard(CCProvider.CARD_VISA.getCardProvider(), ExpMonth.September.getCardExpMonth(), ExpYear._2034.getCardExpYear());
+        checkOut.checkOutAsGuestWithCreditCard(CCProvider.CARD_VISA.getCardProvider(), ExpMonth.September.getCardExpMonth(), ExpYear._2034.getCardExpYear(), new Customer());
         Assert.assertTrue(complete.yourOrderHasBeenSuccessFullyIsDisplayed());
         complete.clickBackToHomeButton();
         Assert.assertTrue(commerce.welcomeToOurStoreIsDisplayed());
@@ -190,7 +191,7 @@ public class CheckOutTest extends CommonAPI {
         CheckOutPage checkOut = new CheckOutPage(getDriver());
         CheckOutCompletePage complete = new CheckOutCompletePage(getDriver());
         commerce.searchAppleAddToCart(Items.APPLE_MAC.getItems());
-        checkOut.checkOutAsGuestWithCheckMoney();
+        checkOut.checkOutAsGuestWithCheckMoney(new Customer());
         Assert.assertTrue(complete.yourOrderHasBeenSuccessFullyIsDisplayed());
         complete.clickBackToHomeButton();
         Assert.assertTrue(commerce.welcomeToOurStoreIsDisplayed());
@@ -205,7 +206,7 @@ public class CheckOutTest extends CommonAPI {
         commerce.addBuildYourComputerToCart();
         item.buildYourOwnComputerAddToCart(CPU.CPU_2.getProcessorOption(), Ram.RAM_OPTION_1.getRamOption(), HDD.HDD_2.getHDDOption(), OSOption.OS_OPTION_1.getOSOption());
         item.changeProductQuantity(5);
-        checkOut.checkOutAsGuestWithCreditCard(CCProvider.CARD_VISA.getCardProvider(), ExpMonth.September.getCardExpMonth(), ExpYear._2034.getCardExpYear());
+        checkOut.checkOutAsGuestWithCreditCard(CCProvider.CARD_VISA.getCardProvider(), ExpMonth.September.getCardExpMonth(), ExpYear._2034.getCardExpYear(), new Customer());
         Assert.assertTrue(complete.yourOrderHasBeenSuccessFullyIsDisplayed());
         complete.clickBackToHomeButton();
         Assert.assertTrue(commerce.welcomeToOurStoreIsDisplayed());
@@ -220,7 +221,7 @@ public class CheckOutTest extends CommonAPI {
         commerce.addBuildYourComputerToCart();
         item.buildYourOwnComputerAddToCart(CPU.CPU_2.getProcessorOption(), Ram.RAM_OPTION_1.getRamOption(), HDD.HDD_2.getHDDOption(), OSOption.OS_OPTION_1.getOSOption());
         item.changeProductQuantity(10);
-        checkOut.checkOutAsGuestWithCheckMoney();
+        checkOut.checkOutAsGuestWithCheckMoney(new Customer());
         Assert.assertTrue(complete.yourOrderHasBeenSuccessFullyIsDisplayed());
         complete.clickBackToHomeButton();
         Assert.assertTrue(commerce.welcomeToOurStoreIsDisplayed());
@@ -235,7 +236,7 @@ public class CheckOutTest extends CommonAPI {
         commerce.addBuildYourComputerToCart();
         item.buildYourOwnComputerAddToCart(CPU.CPU_2.getProcessorOption(), Ram.RAM_OPTION_1.getRamOption(), HDD.HDD_2.getHDDOption(), OSOption.OS_OPTION_1.getOSOption());
         item.mistakeChangeProductQuantity(50, 1);
-        checkOut.checkOutAsGuestWithCheckMoney();
+        checkOut.checkOutAsGuestWithCheckMoney(new Customer());
         Assert.assertTrue(complete.yourOrderHasBeenSuccessFullyIsDisplayed());
         complete.clickBackToHomeButton();
         Assert.assertTrue(commerce.welcomeToOurStoreIsDisplayed());
@@ -250,7 +251,7 @@ public class CheckOutTest extends CommonAPI {
         commerce.addBuildYourComputerToCart();
         item.buildYourOwnComputerAddToCart(CPU.CPU_2.getProcessorOption(), Ram.RAM_OPTION_1.getRamOption(), HDD.HDD_2.getHDDOption(), OSOption.OS_OPTION_1.getOSOption());
         item.mistakeChangeProductQuantity(50, 1);
-        checkOut.checkOutAsGuestWithCreditCard(CCProvider.CARD_VISA.getCardProvider(), ExpMonth.September.getCardExpMonth(), ExpYear._2034.getCardExpYear());
+        checkOut.checkOutAsGuestWithCreditCard(CCProvider.CARD_VISA.getCardProvider(), ExpMonth.September.getCardExpMonth(), ExpYear._2034.getCardExpYear(), new Customer());
         Assert.assertTrue(complete.yourOrderHasBeenSuccessFullyIsDisplayed());
         complete.clickBackToHomeButton();
         Assert.assertTrue(commerce.welcomeToOurStoreIsDisplayed());

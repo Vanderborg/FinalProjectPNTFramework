@@ -4,6 +4,7 @@ import base.CommonAPI;
 import com.github.javafaker.Faker;
 import nopcommerceenums.country.Country;
 import nopcommerceenums.creditcard.CC;
+import nopcommerceobjects.Customer;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -95,65 +96,51 @@ public class CheckOutPage extends CommonAPI {
     @FindBy(xpath = "//div[@id='payment-info-buttons-container']//p[@class='back-link']//a[@href='#']")
     public WebElement returnBackToCreditCard;
 
-    @FindBy(css = "li[class='payment-method'] span[class='value']")
-    public WebElement creditCardIsDisplayed;
-
-    @FindBy(css = "button.button-1.confirm-order-button")
-    public WebElement hopefullyConfirmOrderButton;
-
     public CheckOutPage(WebDriver driver) {
         PageFactory.initElements(driver, this);
-    }
-
-    public boolean creditCardPaymentIsDisplayed() {
-        return checkDisplayed(creditCardIsDisplayed);
     }
 
     private boolean wrongCardNumberIsDisplayed() {
         return checkDisplayed(wrongCardNumberText);
     }
 
-    public void checkOutAsGuestWithCheckMoney() {
+    public void clickConfirmCheckOutCompleteButton() {
+        click(confirmCheckOutCompleteButton);
+    }
+
+    public void checkOutAsGuestWithCheckMoney(Customer customer) {
         CartPage cart = new CartPage(getDriver());
         RegisterLoginPage guest = new RegisterLoginPage(getDriver());
         cart.clickCheckOut();
         guest.checkOutAsGuest();
-        firstNameLastNameEmailEntered();
-        addressAndPhoneNumberEntered();
+        firstNameLastNameEmailEntered(customer);
+        addressAndPhoneNumberEntered(customer);
         continueWithCheckMoneyOrder();
     }
 
-    public void checkOutAsGuestWithCreditCard(String card, String expirationMonthDate, String expirationYearDate) {
+    public void checkOutAsGuestWithCreditCard(String card, String expirationMonthDate, String expirationYearDate, Customer customer) {
         CartPage cart = new CartPage(getDriver());
         RegisterLoginPage guest = new RegisterLoginPage(getDriver());
         cart.clickCheckOut();
         guest.checkOutAsGuest();
-        firstNameLastNameEmailEntered();
-        addressAndPhoneNumberEntered();
-        continueWithCreditCard(card, expirationMonthDate, expirationYearDate);
+        firstNameLastNameEmailEntered(customer);
+        addressAndPhoneNumberEntered(customer);
+        continueWithCreditCard(card, expirationMonthDate, expirationYearDate, customer);
+        clickConfirmCheckOutCompleteButton();
     }
 
-    public void registeredUserCheckMoneyCheckout() {
-        addressAndPhoneNumberEntered();
+    public void registeredUserCheckMoneyCheckout(Customer customer) {
+        addressAndPhoneNumberEntered(customer);
         continueWithCheckMoneyOrder();
     }
 
-    public void registeredUserCreditCardCheckout(String card, String expirationMonthDate, String expirationYearDate) {
+    public void registeredUserCreditCardCheckout(String card, String expirationMonthDate, String expirationYearDate, Customer customer) {
         copyText(billingFirstNameField);
-        try {
-            String billingFirstName = Toolkit.getDefaultToolkit().getSystemClipboard().getData(DataFlavor.stringFlavor).toString();
-        } catch (UnsupportedFlavorException | IOException e) {
-            throw new RuntimeException(e);
-        }
         copyText(billingLastNameField);
-        try {
-            String billingLastName = Toolkit.getDefaultToolkit().getSystemClipboard().getData(DataFlavor.stringFlavor).toString();
-        } catch (UnsupportedFlavorException | IOException e) {
-            throw new RuntimeException(e);
-        }
         selectCountryAndState();
-        addressAndPhoneNumberEntered();
-        continueWithCreditCard(card, expirationMonthDate, expirationYearDate);
+        addressAndPhoneNumberEntered(customer);
+        continueWithCreditCard(card, expirationMonthDate, expirationYearDate, customer);
+        clickConfirmCheckOutCompleteButton();
     }
 
     public void continueWithCheckMoneyOrder() {
@@ -163,16 +150,14 @@ public class CheckOutPage extends CommonAPI {
         }
     }
 
-    public void continueWithCreditCard(String card, String expirationMonthDate, String expirationYearDate) {
+    public void continueWithCreditCard(String card, String expirationMonthDate, String expirationYearDate, Customer customer) {
         ConnectDB connectDB = new ConnectDB();
-        String firstName = new Faker().name().firstName();
-        String lastName = new Faker().name().lastName();
         List<WebElement> click = Arrays.asList(continueToShippingButton, continueToPaymentButton, creditCardRadioButton, continueToPaymentInfoButton);
         for (WebElement clickAll:click) {
             click(clickAll);
         }
         selectFromDropdown(selectCreditCard, card);
-        List<String> cardHolder = List.of(firstName + " " + lastName, connectDB.readMysqlDataBaseColumn(CC.CC_TABLE.getCcCredentials(), CC.CC_NUMBER.getCcCredentials()).toString());
+        List<String> cardHolder = List.of(customer.getFirstName() + " " + customer.getLastName(), connectDB.readMysqlDataBaseColumn(CC.CC_TABLE.getCcCredentials(), CC.CC_NUMBER.getCcCredentials()).toString());
         List<WebElement> cardHolderElements = Arrays.asList(cardHolderNameField, cardNumberField);
         for (int i = 0; i < cardHolder.size(); i++) {
             type(cardHolderElements.get(i), cardHolder.get(i).replace("[", "").replace("]", ""));
@@ -181,28 +166,19 @@ public class CheckOutPage extends CommonAPI {
         selectFromDropdown(selectYearExpirationDate, expirationYearDate);
         type(cardCodeField, connectDB.readMysqlDataBaseColumn(CC.CC_TABLE.getCcCredentials(), CC.CC_CODE.getCcCredentials()).toString().replace("[", ""));
         click(continueToConfirmOrderButton);
-        Assert.assertTrue(creditCardPaymentIsDisplayed());
-        click(confirmCheckOutCompleteButton);
     }
 
-    public void firstNameLastNameEmailEntered() {
-        String firstName = new Faker().name().firstName();
-        String lastName = new Faker().name().lastName();
-        String email = new Faker().bothify("????????###@gmail.com");
-        List<String> billingFields = Arrays.asList(firstName, lastName, email);
+    public void firstNameLastNameEmailEntered(Customer customer) {
+        List<String> billingFields = Arrays.asList(customer.getFirstName(), customer.getLastName(), customer.getEmail());
         List<WebElement> billingFieldsElements = Arrays.asList(billingFirstNameField, billingLastNameField, billingEmailField);
         for (int i = 0; i < billingFields.size(); i++) {
             type(billingFieldsElements.get(i), billingFields.get(i));
         }
     }
 
-    public void addressAndPhoneNumberEntered() {
-        String city = new Faker().address().city();
-        String address = new Faker().address().streetAddress();
-        String zipCode = new Faker().address().zipCode();
-        String phone = new Faker().phoneNumber().cellPhone();
+    public void addressAndPhoneNumberEntered(Customer customer) {
         selectCountryAndState();
-        List<String> billingFields = Arrays.asList(city, address, zipCode, phone);
+        List<String> billingFields = Arrays.asList(customer.getCity(), customer.getAddress(), customer.getZipCode(), customer.getPhoneNumber());
         List<WebElement> billingFieldsElements = Arrays.asList(billingCityField, billingAddressField, billingZipCodeField, billingPhoneNumberField);
         for (int i = 0; i < billingFields.size(); i++) {
             type(billingFieldsElements.get(i), billingFields.get(i));
@@ -222,29 +198,9 @@ public class CheckOutPage extends CommonAPI {
         }
     }
 
-    public void enterCCFields() {
-
-    }
-
-    public void continueWithCreditCardOrCheckMoney(String card, String expirationMonthDate, String expirationYearDate) {
-        String firstName = new Faker().name().firstName();
-        String lastName = new Faker().name().lastName();
-        String cardNumber = new Faker().bothify("###################");
-        String cardCode = new Faker().numerify("####");
-        List<WebElement> click = Arrays.asList(continueToShippingButton, continueToPaymentButton, creditCardRadioButton, continueToPaymentInfoButton);
-        for (WebElement clickAll:click) {
-            click(clickAll);
-        }
-        selectFromDropdown(selectCreditCard, card);
-        List<String> cardHolder = List.of(firstName + " " + lastName, cardNumber);
-        List<WebElement> cardHolderElements = Arrays.asList(cardHolderNameField, cardNumberField);
-        for (int i = 0; i < cardHolder.size(); i++) {
-            type(cardHolderElements.get(i), cardHolder.get(i));
-        }
-        selectFromDropdown(selectMonthExpirationDate, expirationMonthDate);
-        selectFromDropdown(selectYearExpirationDate, expirationYearDate);
-        type(cardCodeField, cardCode);
-        click(continueToConfirmOrderButton);
+    public void continueWithCreditCardOrCheckMoney(String card, String expirationMonthDate, String expirationYearDate, Customer customer) {
+         continueWithCreditCard(card, expirationMonthDate, expirationYearDate, customer);
+         clickConfirmCheckOutCompleteButton();
         if (wrongCardNumberIsDisplayed()) {
             List<WebElement> webElements = Arrays.asList(returnBackToCreditCard, checkMoneyOrderRadioButton, continueToPaymentInfoButton, continueToConfirmOrderButton, confirmCheckOutCompleteButton);
             for (WebElement clickAllWebElements:webElements) {
