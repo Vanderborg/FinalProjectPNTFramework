@@ -15,6 +15,9 @@ import java.time.Duration;
 
 public class LoginPage extends CommonAPI {
 
+    @FindBy(css = "a[class='action create primary'] span")
+    public WebElement createAccountBttn;
+
     @FindBy(css = "#email")
     public WebElement emailField;
 
@@ -33,6 +36,8 @@ public class LoginPage extends CommonAPI {
     public LoginPage (WebDriver driver){PageFactory.initElements(driver, this);}
 
     public boolean verifyInvalidLogin() {return checkDisplayed(invalidLoginErrorMsg);}
+
+    public void navigateToCreateAccount() {click(createAccountBttn);}
 
     public void customerLogin(String email, String password){
         HomePage home = new HomePage(getDriver());

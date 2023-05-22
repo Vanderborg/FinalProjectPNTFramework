@@ -1,12 +1,18 @@
 package lumapages;
 
 import base.CommonAPI;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import ru.yandex.qatools.ashot.Screenshot;
+
+import java.io.File;
 
 public class HomePage extends CommonAPI {
+
 
     @FindBy(css = "div[class='panel header'] li[data-label='or'] a")
     public WebElement signInBttn;
@@ -38,14 +44,14 @@ public class HomePage extends CommonAPI {
     @FindBy(css = "img[alt='Hero Hoodie']")
     public WebElement heroHoodie;
 
-    public HomePage(WebDriver driver){
-    PageFactory.initElements(driver, this);
-}
+    @FindBy(xpath = "//li[@class='nav item']//a[normalize-space()='Advanced Search']")
+    public WebElement advancedSearchLink;
 
+    public HomePage(WebDriver driver){PageFactory.initElements(driver, this);
+}
     public boolean verifyLoggedIn() {return checkDisplayed(hotSellersTitle);}
 
-    public void navigateToSignIn(){click(signInBttn);
-    }
+    public void navigateToSignIn(){click(signInBttn);}
 
     public void navigateToMensPage() {click(mensDropdownMenu);}
 
@@ -73,5 +79,7 @@ public class HomePage extends CommonAPI {
     public void navigateToHeroHoodie() {
         click(heroHoodie);
     }
+
+    public void navigateToAdvancedSearch() {click(advancedSearchLink);}
 }
 
