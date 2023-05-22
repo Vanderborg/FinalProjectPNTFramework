@@ -1,12 +1,18 @@
 package lumapages;
 
 import base.CommonAPI;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import ru.yandex.qatools.ashot.Screenshot;
+
+import java.io.File;
 
 public class HomePage extends CommonAPI {
+
 
     @FindBy(css = "div[class='panel header'] li[data-label='or'] a")
     public WebElement signInBttn;
@@ -32,12 +38,20 @@ public class HomePage extends CommonAPI {
     @FindBy(xpath = "//span[normalize-space()='Buy 3 Luma tees get a 4th free']")
     public WebElement tShirtPromoBox;
 
-    public HomePage(WebDriver driver){
-    PageFactory.initElements(driver, this);
-}
+    @FindBy(css = "h2[class='title']")
+    public WebElement hotSellersTitle;
 
-    public void navigateToSignIn(){click(signInBttn);
-    }
+    @FindBy(css = "img[alt='Hero Hoodie']")
+    public WebElement heroHoodie;
+
+    @FindBy(xpath = "//li[@class='nav item']//a[normalize-space()='Advanced Search']")
+    public WebElement advancedSearchLink;
+
+    public HomePage(WebDriver driver){PageFactory.initElements(driver, this);
+}
+    public boolean verifyLoggedIn() {return checkDisplayed(hotSellersTitle);}
+
+    public void navigateToSignIn(){click(signInBttn);}
 
     public void navigateToMensPage() {click(mensDropdownMenu);}
 
@@ -54,7 +68,7 @@ public class HomePage extends CommonAPI {
 
     public void navigateToContactUs() {click(contactUsBttn);}
 
-    public void naviagteToSinBadTankTop() {
+    public void navigateToSinBadTankTop() {
         HomePage home = new HomePage(getDriver());
         MensPage men = new MensPage(getDriver());
         MensTopsPage tops = new MensTopsPage(getDriver());
@@ -62,8 +76,10 @@ public class HomePage extends CommonAPI {
         men.navigateToTops();
         tops.goToTankTop();
     }
-    public void navigateToDesireeFitnessTee() {
-
+    public void navigateToHeroHoodie() {
+        click(heroHoodie);
     }
+
+    public void navigateToAdvancedSearch() {click(advancedSearchLink);}
 }
 

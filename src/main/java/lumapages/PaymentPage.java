@@ -11,11 +11,15 @@ public class PaymentPage extends CommonAPI {
     @FindBy(css = "button[title='Place Order']")
     public WebElement placeOrderBttn;
 
-    public PaymentPage(WebDriver driver){PageFactory.initElements(driver, this);}
+    @FindBy(css = "#billing-address-same-as-shipping-checkmo")
+    public WebElement sameBillingAndShippingBox;
+
+    public PaymentPage(WebDriver driver) {
+        PageFactory.initElements(driver, this);
+    }
 
     public void placeOrder() {
-        waitFor(2);click(placeOrderBttn);
-
-        waitFor(10);
+        waitFor(2);
+        click(placeOrderBttn);
     }
 }
