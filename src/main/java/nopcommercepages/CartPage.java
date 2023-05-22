@@ -1,15 +1,11 @@
 package nopcommercepages;
 
 import base.CommonAPI;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.time.Duration;
 import java.util.Arrays;
 import java.util.List;
 
@@ -54,14 +50,14 @@ public class CartPage extends CommonAPI {
     }
 
     public void deleteSingleItem() {
-        NopCommerceStorePage commerce = new NopCommerceStorePage(getDriver());
+        NopCommerceHomePage commerce = new NopCommerceHomePage(getDriver());
         click(deleteItem);
         commerce.clickOnNopCommerceLogo();
         waitFor(1);
     }
 
     public void deleteSingleItemAndAddHTC8Phone() {
-        NopCommerceStorePage commerce = new NopCommerceStorePage(getDriver());
+        NopCommerceHomePage commerce = new NopCommerceHomePage(getDriver());
         click(deleteItem);
         commerce.clickOnNopCommerceLogo();
         waitFor(1);
