@@ -13,7 +13,7 @@ public class LumaTest extends CommonAPI {
         HomePage home = new HomePage(getDriver());
         LoginPage login = new LoginPage(getDriver());
         SinbadFitnessTankTopPage sin = new SinbadFitnessTankTopPage(getDriver());
-        login.customerLogin(Login.EMAIL.getLogin(),Login.PASSWORD.getLogin());
+        login.customerLogin(Login.EMAIL.getLogin(), Login.PASSWORD.getLogin());
         home.navigateToSinBadTankTop();
         sin.sinbadTankTopAddToCart();
         Assert.assertTrue(sin.verifyAddedToCart());
@@ -24,7 +24,7 @@ public class LumaTest extends CommonAPI {
         HomePage home = new HomePage(getDriver());
         LoginPage gologin = new LoginPage(getDriver());
         home.navigateToSignIn();
-        gologin.customerLogin(Login.EMAIL.getLogin(),Login.PASSWORD.getLogin());
+        gologin.customerLogin(Login.EMAIL.getLogin(), Login.PASSWORD.getLogin());
         home.subscribeToNewsLetter(Login.EMAIL.getLogin());
     }
 
@@ -44,7 +44,7 @@ public class LumaTest extends CommonAPI {
         GearFitnessEquipmentPage fitness = new GearFitnessEquipmentPage(getDriver());
         SpriteYogaCompanionKitPage yoga = new SpriteYogaCompanionKitPage(getDriver());
         home.navigateToSignIn();
-        gologin.customerLogin(Login.EMAIL.getLogin(),Login.PASSWORD.getLogin());
+        gologin.customerLogin(Login.EMAIL.getLogin(), Login.PASSWORD.getLogin());
         home.navigateToGear();
         gear.navigateToFitnessPage();
         fitness.navigateToBlueYogaBall();
@@ -57,7 +57,7 @@ public class LumaTest extends CommonAPI {
         LoginPage gologin = new LoginPage(getDriver());
         ContactUsPage contact = new ContactUsPage(getDriver());
         home.navigateToSignIn();
-        gologin.customerLogin(Login.EMAIL.getLogin(),Login.PASSWORD.getLogin());
+        gologin.customerLogin(Login.EMAIL.getLogin(), Login.PASSWORD.getLogin());
         home.navigateToContactUs();
         contact.submitFeedbackToSite();
     }
@@ -76,6 +76,7 @@ public class LumaTest extends CommonAPI {
         strive.addStriveShoulderBagToCart();
         cart.deleteItemInCart();
     }
+
     @Test(enabled = false)//7
     public void tShirtPromotionCheckOut() {
         HomePage home = new HomePage(getDriver());
@@ -86,7 +87,7 @@ public class LumaTest extends CommonAPI {
         ShippingPage ship = new ShippingPage(getDriver());
         PaymentPage pay = new PaymentPage(getDriver());
         home.navigateToSignIn();
-        gologin.customerLogin(Login.EMAIL.getLogin(),Login.PASSWORD.getLogin());
+        gologin.customerLogin(Login.EMAIL.getLogin(), Login.PASSWORD.getLogin());
         home.navigateDirectlyToWomenTees();
         wtees.navigateToDesireeTee();
         desiree.addDesireeFitnessTeeToCart();
@@ -104,7 +105,7 @@ public class LumaTest extends CommonAPI {
         WomensTeesPage wtees = new WomensTeesPage(getDriver());
         DesireeFitnessTeePage desiree = new DesireeFitnessTeePage(getDriver());
         SinbadFitnessTankTopPage sin = new SinbadFitnessTankTopPage(getDriver());
-        login.customerLogin(Login.EMAIL.getLogin(),Login.PASSWORD.getLogin());
+        login.customerLogin(Login.EMAIL.getLogin(), Login.PASSWORD.getLogin());
         home.navigateDirectlyToWomenTees();
         wtees.navigateToDesireeTee();
         desiree.addDesireeTeeToComparisonList();
@@ -118,7 +119,7 @@ public class LumaTest extends CommonAPI {
         HomePage home = new HomePage(getDriver());
         LoginPage login = new LoginPage(getDriver());
         WomensTeesPage wtees = new WomensTeesPage(getDriver());
-        login.customerLogin(Login.EMAIL.getLogin(),Login.PASSWORD.getLogin());
+        login.customerLogin(Login.EMAIL.getLogin(), Login.PASSWORD.getLogin());
         home.navigateDirectlyToWomenTees();
         wtees.priceFromSortBy();
         waitFor(4);
@@ -139,14 +140,14 @@ public class LumaTest extends CommonAPI {
     public void verifyLogIn() {
         HomePage home = new HomePage(getDriver());
         LoginPage login = new LoginPage(getDriver());
-        login.customerLogin(Login.EMAIL.getLogin(),Login.PASSWORD.getLogin());
+        login.customerLogin(Login.EMAIL.getLogin(), Login.PASSWORD.getLogin());
         Assert.assertTrue(home.verifyLoggedIn());
     }
 
     @Test(enabled = false)//11
     public void verifyIncorrectLogin() {
         LoginPage login = new LoginPage(getDriver());
-        login.customerLogin(Login.INVALID_LOGIN.getLogin(),Login.PASSWORD.getLogin());
+        login.customerLogin(Login.INVALID_LOGIN.getLogin(), Login.PASSWORD.getLogin());
         Assert.assertTrue(login.verifyInvalidLogin());
     }
     @Test(enabled = true)//12
@@ -155,11 +156,36 @@ public class LumaTest extends CommonAPI {
         HeroHoodiePage hero = new HeroHoodiePage(getDriver());
         AeroTeeClassPage aero = new AeroTeeClassPage(getDriver());
         ShippingPage ship = new ShippingPage(getDriver());
+        PaymentPage pay = new PaymentPage(getDriver());
         home.navigateToHeroHoodie();
         hero.addHeroHoodieToCart();
         hero.navigateToAeroTee();
         aero.addAeroTeeToCart();
         ship.fillOutShippingInfo();
+        pay.placeOrder();
+}
+    @Test(enabled = false)//12
+    public void accountCreation() {
+        HomePage home = new HomePage(getDriver());
+        LoginPage login = new LoginPage(getDriver());
+        AccountCreationPage acp= new AccountCreationPage(getDriver());
+        AccountPage ap = new AccountPage(getDriver());
+        home.navigateToSignIn();
+        login.navigateToCreateAccount();
+        acp.createAccount();
+        Assert.assertTrue(ap.verifyAccountCreated());
     }
+
+    @Test(enabled = false)//13
+    public void verifyAdvancedSearch() {
+        HomePage home = new HomePage(getDriver());
+        AdvancedSearchPage asp = new AdvancedSearchPage(getDriver());
+        CatalogAdvancedSearchPage casp = new CatalogAdvancedSearchPage(getDriver());
+        home.navigateToAdvancedSearch();
+        asp.searchWithSKU();
+        Assert.assertTrue(casp.verifyAdvancedSearch());
+    }
+//    @Test(enabled = false)//14
+//    public void
 
 }
