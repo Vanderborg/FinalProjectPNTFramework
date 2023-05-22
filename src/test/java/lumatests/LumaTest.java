@@ -157,12 +157,14 @@ public class LumaTest extends CommonAPI {
         AeroTeeClassPage aero = new AeroTeeClassPage(getDriver());
         ShippingPage ship = new ShippingPage(getDriver());
         PaymentPage pay = new PaymentPage(getDriver());
+        CheckOutSuccessPage cosp = new CheckOutSuccessPage(getDriver());
         home.navigateToHeroHoodie();
         hero.addHeroHoodieToCart();
         hero.navigateToAeroTee();
         aero.addAeroTeeToCart();
         ship.fillOutShippingInfo();
         pay.placeOrder();
+        Assert.assertTrue(cosp.verifyCheckOutSuccess());
 }
     @Test(enabled = false)//12
     public void accountCreation() {
