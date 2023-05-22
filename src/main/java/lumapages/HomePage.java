@@ -1,18 +1,12 @@
 package lumapages;
 
 import base.CommonAPI;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import ru.yandex.qatools.ashot.Screenshot;
-
-import java.io.File;
 
 public class HomePage extends CommonAPI {
-
 
     @FindBy(css = "div[class='panel header'] li[data-label='or'] a")
     public WebElement signInBttn;
@@ -82,4 +76,3 @@ public class HomePage extends CommonAPI {
 
     public void navigateToAdvancedSearch() {click(advancedSearchLink);}
 }
-
