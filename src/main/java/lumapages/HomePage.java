@@ -1,6 +1,7 @@
 package lumapages;
 
 import base.CommonAPI;
+import com.github.javafaker.Faker;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -41,9 +42,20 @@ public class HomePage extends CommonAPI {
     @FindBy(xpath = "//li[@class='nav item']//a[normalize-space()='Advanced Search']")
     public WebElement advancedSearchLink;
 
+    @FindBy(css = "#search")
+    public WebElement searchBar;
+
+    @FindBy(css = "button[title='Search']")
+    public WebElement magnifyingGlassIcon;
+
+    @FindBy(css = ".message-success.success.message")
+    public WebElement newsletterConfirmation;
+
     public HomePage(WebDriver driver){PageFactory.initElements(driver, this);
 }
     public boolean verifyLoggedIn() {return checkDisplayed(hotSellersTitle);}
+
+    public boolean verifyNewsletterSubscription() {return checkDisplayed(newsletterConfirmation);}
 
     public void navigateToSignIn(){click(signInBttn);}
 
@@ -51,7 +63,8 @@ public class HomePage extends CommonAPI {
 
     public void navigateDirectlyToWomenTees() {click(tShirtPromoBox);}
 
-    public void subscribeToNewsLetter(String email) {
+    public void subscribeToNewsLetter() {
+        String email = new Faker().bothify("??????##@gmail.com");
         click(newsletterSignUpBox);
         type(newsletterSignUpBox, email);
         click(subscribeNewsletterBttn);
@@ -75,4 +88,11 @@ public class HomePage extends CommonAPI {
     }
 
     public void navigateToAdvancedSearch() {click(advancedSearchLink);}
+
+    public void searchBarField() {
+        String product = new Faker().dragonBall().character();
+        typeAndClick(searchBar, product, magnifyingGlassIcon);}
+
+    public void searchWithSKU() {
+        typeAndClick(searchBar,"MT06", magnifyingGlassIcon);}
 }

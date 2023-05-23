@@ -16,6 +16,8 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 
+import static java.util.List.of;
+
 public class CheckOutPage extends CommonAPI {
 
     @FindBy(css = "#BillingNewAddress_FirstName")
@@ -149,7 +151,7 @@ public class CheckOutPage extends CommonAPI {
             click(clickAll);
         }
         selectFromDropdown(selectCreditCard, card);
-        List<String> cardHolder = List.of(customer.getFirstName() + " " + customer.getLastName(), new ConnectDB().readMysqlDataBaseColumn(CC.CC_TABLE.getCcCredentials(), CC.CC_NUMBER.getCcCredentials()).toString());
+        List<String> cardHolder = of(customer.getFirstName() + " " + customer.getLastName(), new ConnectDB().readMysqlDataBaseColumn(CC.CC_TABLE.getCcCredentials(), CC.CC_NUMBER.getCcCredentials()).toString());
         List<WebElement> cardHolderElements = Arrays.asList(cardHolderNameField, cardNumberField);
         for (int i = 0; i < cardHolder.size(); i++) {
             type(cardHolderElements.get(i), cardHolder.get(i).replace("[", "").replace("]", ""));

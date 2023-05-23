@@ -23,7 +23,12 @@ public class OrdersAndReturnsPage extends CommonAPI {
     @FindBy(xpath = "//span[normalize-space()='Continue']")
     public WebElement continueBttn;
 
+    @FindBy(xpath = "//span[normalize-space()='May 8, 2023']")
+    public WebElement orderDate;
+
     public OrdersAndReturnsPage(WebDriver driver) {PageFactory.initElements(driver, this);}
+
+    public boolean verifyOrderDate() {return checkDisplayed(orderDate);}
 
     public void fillInOrderInfo() {
         String orderID = "000007519";
