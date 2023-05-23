@@ -60,7 +60,7 @@
         <dependency>
             <groupId>commons-io</groupId>
             <artifactId>commons-io</artifactId>
-            <version>2.5</version>
+            <version>2.7</version>
         </dependency>
         <dependency>
             <groupId>org.apache.commons</groupId>
@@ -124,6 +124,18 @@
             <version>2.20.0</version>
         </dependency>
 
+        <dependency>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-compiler-plugin</artifactId>
+            <version>3.11.0</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.26</version>
+            <scope>provided</scope>
+        </dependency>
 
     </dependencies>
 
@@ -136,8 +148,16 @@
                 <configuration>
 
                     <suiteXmlFiles>
-                        <suiteXmlFile>C:\Users\acekn\IdeaProjects\FinalProjectFrameWork\src\test\resources\runner.xml</suiteXmlFile>
+                        <suiteXmlFile>C:\Users\MSI - Laptop\IdeaProjects\NacerFinalProject\src\test\resources\runner.xml</suiteXmlFile>
                     </suiteXmlFiles>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>9</source>
+                    <target>9</target>
                 </configuration>
             </plugin>
         </plugins>

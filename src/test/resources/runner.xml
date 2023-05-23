@@ -3,7 +3,23 @@
 
 <suite name="FinalProjectFramework Script">
 
-    <test name="com.Luma Tests">
+<!--    <test name="com.Luma Tests">-->
+
+<!--        <parameter name="useCloudEnv" value="false"></parameter>-->
+<!--        <parameter name="envName" value="browserstack"></parameter>-->
+<!--        <parameter name="os" value="windows"></parameter>-->
+<!--        <parameter name="osVersion" value="11"></parameter>-->
+<!--        <parameter name="browserName" value="chrome"/>-->
+<!--        <parameter name="browserVersion" value="113"/>-->
+<!--        <parameter name="url" value="https://magento.softwaretestingboard.com/"/>-->
+
+<!--        <classes>-->
+<!--            <class name="lumatests.LumaTest"></class>-->
+<!--        </classes>-->
+
+<!--    </test>-->
+
+    <test name="com.NopCommerce Tests">
 
         <parameter name="useCloudEnv" value="false"></parameter>
         <parameter name="envName" value="browserstack"></parameter>
@@ -11,10 +27,10 @@
         <parameter name="osVersion" value="11"></parameter>
         <parameter name="browserName" value="chrome"/>
         <parameter name="browserVersion" value="113"/>
-        <parameter name="url" value="https://magento.softwaretestingboard.com/"/>
+        <parameter name="url" value="https://demo.nopcommerce.com/"/>
 
         <classes>
-            <class name="lumatests.LumaTest"></class>
+            <class name="nopcommercetests.CheckOutTest"></class>
         </classes>
 
     </test>

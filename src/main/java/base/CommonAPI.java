@@ -47,7 +47,7 @@ public class CommonAPI {
     String duration = prop.getProperty("implicit.wait", "25");
 
     String maximizeBrowser = prop.getProperty("maximize.browser", "true");
-    String takeScreenshot = prop.getProperty("take.screenshot", "false");
+    String takeScreenshot = prop.getProperty("take.screenshots", "true");
     String browserstackUsername = prop.getProperty("browserstack.username");
     String browserstackPassword = prop.getProperty("browserstack.password");
 
