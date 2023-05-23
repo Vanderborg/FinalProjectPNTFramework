@@ -8,6 +8,10 @@ target/
 .idea/modules.xml
 .idea/jarRepositories.xml
 .idea/compiler.xml
+.idea/uiDesigner.xml
+.idea/vcs.xml
+.idea/misc.xml
+.idea/workspace.xml
 .idea/libraries/
 .idea/workspace.xml
 *.iws
@@ -47,3 +51,4 @@ Extent-Report/
 driver
 
 logs
+report-config.xml
