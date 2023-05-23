@@ -2,6 +2,11 @@ package nopcommercepages;
 
 import base.CommonAPI;
 import com.github.javafaker.Faker;
+import nopcommerceenums.computeroptions.OSOption;
+import nopcommerceobjects.CPU;
+import nopcommerceobjects.HDD;
+import nopcommerceobjects.OS;
+import nopcommerceobjects.Ram;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -117,22 +122,22 @@ public class ItemsPage extends CommonAPI {
         click(addAppleProductToCart);
     }
 
-    public void buildComputerAndGoToCart(String processorOption, String ramOption, String hDDOption, String oSOption) {
+    public void buildComputerAndGoToCart(CPU cpu, Ram ram, HDD hdd, OS os) {
         NopCommerceHomePage commerce =  new NopCommerceHomePage(getDriver());
         commerce.addBuildYourComputerToCart();
-        inputBuildYourOwnComputer(processorOption, ramOption, hDDOption, oSOption);
+        inputBuildYourOwnComputer(cpu, ram, hdd, os);
         click(goToShoppingCartButton);
     }
 
-    public void buildYourOwnComputerAddToCart(String processorOption, String ramOption, String hDDOption, String oSOption) {
+    public void buildYourOwnComputerAddToCart(CPU cpu, Ram ram, HDD hdd, OS os) {
         NopCommerceHomePage commerce =  new NopCommerceHomePage(getDriver());
         commerce.addBuildYourComputerToCart();
-        inputBuildYourOwnComputer(processorOption, ramOption, hDDOption, oSOption);
+        inputBuildYourOwnComputer(cpu, ram, hdd, os);
     }
 
-    public void addComputerAndGiftCardToCart(String processorOption, String ramOption, String hDDOption, String oSOption) {
+    public void addComputerAndGiftCardToCart(CPU cpu, Ram ram, HDD hdd, OS os) {
         NopCommerceHomePage commerce =  new NopCommerceHomePage(getDriver());
-        buildYourOwnComputerAddToCart(processorOption, ramOption, hDDOption, oSOption);
+        buildYourOwnComputerAddToCart(cpu, ram, hdd, os);
         commerce.clickOnNopCommerceLogo();
         commerce.addVirtualGiftCardToCart();
         click(goToShoppingCartButton);
@@ -154,9 +159,9 @@ public class ItemsPage extends CommonAPI {
         click(addGiftCardToCart);
     }
 
-    public void inputBuildYourOwnComputer(String processorOption, String ramOption, String hDDOption, String oSOption) {
-        selectFromDropdown(selectProcessorFromDropDown, processorOption);
-        selectFromDropdown(selectRAMFromDropDown, ramOption);
+    public void inputBuildYourOwnComputer(CPU cpu, Ram ram, HDD hdd, OS os) {
+        selectFromDropdown(selectProcessorFromDropDown, String.valueOf(cpu));
+        selectFromDropdown(selectRAMFromDropDown, String.valueOf(ram));
         List<WebElement> hDD = Arrays.asList(HDD320GBRadioButton, HDD400GBRadioButton);
         for (WebElement hDDOptions:hDD) {
             click(hDDOptions);
