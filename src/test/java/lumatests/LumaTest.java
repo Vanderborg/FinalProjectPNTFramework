@@ -203,5 +203,6 @@ public class LumaTest extends CommonAPI {
         home.searchWithSKU();
         Assert.assertTrue(srp.verifySearchBarSkuFunctionality());
     }
-//    @Test(enabled = false)
+     @Test(enabled = false)//17
+
 }
