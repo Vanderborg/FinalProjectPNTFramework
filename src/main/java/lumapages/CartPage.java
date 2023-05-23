@@ -26,16 +26,19 @@ public class CartPage extends CommonAPI {
     @FindBy(css = "a[title='Edit item parameters']")
     public WebElement pencilIcon;
 
+    @FindBy(xpath = "//p[normalize-space()='You have no items in your shopping cart.']")
+    public WebElement removalOfItemsFromCartSuccess;
+
     public CartPage(WebDriver driver) {
         PageFactory.initElements(driver, this);
     }
+
+    public boolean verifyRemovalOfCartItems() {return checkDisplayed(removalOfItemsFromCartSuccess);}
 
     Logger log = LogManager.getLogger(CartPage.class.getName());
 
     public void deleteItemInCart() {
         click(trashCanIcon);
-        click(lumaHomeIcon);
-        log.info("Clicks trash icon and navigates back to homepage.");
     }
 
     public void adjustItemsInCart() {
