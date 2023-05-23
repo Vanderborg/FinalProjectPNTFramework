@@ -122,22 +122,22 @@ public class ItemsPage extends CommonAPI {
         click(addAppleProductToCart);
     }
 
-    public void buildComputerAndGoToCart(CPU cpu, Ram ram, HDD hdd, OS os) {
+    public void buildComputerAndGoToCart(String processorOption, String ramOption, String hddOption, String osOption) {
         NopCommerceHomePage commerce =  new NopCommerceHomePage(getDriver());
         commerce.addBuildYourComputerToCart();
-        inputBuildYourOwnComputer(cpu, ram, hdd, os);
+        inputBuildYourOwnComputer(processorOption, ramOption, hddOption, osOption);
         click(goToShoppingCartButton);
     }
 
-    public void buildYourOwnComputerAddToCart(CPU cpu, Ram ram, HDD hdd, OS os) {
+    public void buildYourOwnComputerAddToCart(String processorOption, String ramOption, String hddOption, String osOption) {
         NopCommerceHomePage commerce =  new NopCommerceHomePage(getDriver());
         commerce.addBuildYourComputerToCart();
-        inputBuildYourOwnComputer(cpu, ram, hdd, os);
+        inputBuildYourOwnComputer(processorOption, ramOption, hddOption, osOption);
     }
 
-    public void addComputerAndGiftCardToCart(CPU cpu, Ram ram, HDD hdd, OS os) {
+    public void addComputerAndGiftCardToCart(String processorOption, String ramOption, String hddOption, String osOption) {
         NopCommerceHomePage commerce =  new NopCommerceHomePage(getDriver());
-        buildYourOwnComputerAddToCart(cpu, ram, hdd, os);
+        buildYourOwnComputerAddToCart(processorOption, ramOption, hddOption, osOption);
         commerce.clickOnNopCommerceLogo();
         commerce.addVirtualGiftCardToCart();
         click(goToShoppingCartButton);
@@ -159,9 +159,9 @@ public class ItemsPage extends CommonAPI {
         click(addGiftCardToCart);
     }
 
-    public void inputBuildYourOwnComputer(CPU cpu, Ram ram, HDD hdd, OS os) {
-        selectFromDropdown(selectProcessorFromDropDown, String.valueOf(cpu));
-        selectFromDropdown(selectRAMFromDropDown, String.valueOf(ram));
+    public void inputBuildYourOwnComputer(String processorOption, String ramOption, String hddOption, String osOption) {
+        selectFromDropdown(selectProcessorFromDropDown, processorOption);
+        selectFromDropdown(selectRAMFromDropDown, ramOption);
         List<WebElement> hDD = Arrays.asList(HDD320GBRadioButton, HDD400GBRadioButton);
         for (WebElement hDDOptions:hDD) {
             click(hDDOptions);
