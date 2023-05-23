@@ -20,10 +20,10 @@ import org.testng.annotations.Test;
 
 public class CheckOutTest extends CommonAPI {
 
-    @Test(enabled = true) //1
-    public void testCreditCardCheckout() {
+    @Test(dataProvider = "testdata")
+    public void testCreditCardCheckout(String cpu, String ram, String hDD, String oS) {
         new RegisterLoginPage(getDriver()).registerAndLogin(String.valueOf(Day._10.getDayValue()), Month.April.getMonthValue(), Year._1994.getYearValue(), new Customer());
-        new ItemsPage(getDriver()).buildComputerAndGoToCart(CPU.CPU_1.getProcessorOption(), Ram.RAM_OPTION_2.getRamOption(), HDD.HDD_1.getHDDOption(), OSOption.OS_OPTION_2.getOSOption());
+        new ItemsPage(getDriver()).buildComputerAndGoToCart(cpu, ram, hDD, oS);
         new CartPage(getDriver()).clickCheckOut();
         new CheckOutPage(getDriver()).regUserCCCheckout(CCProvider.CARD_VISA.getCardProvider(), ExpMonth.July.getCardExpMonth(), ExpYear._2034.getCardExpYear(), new Customer(), new State());
         Assert.assertTrue(new CheckOutCompletePage(getDriver()).yourOrderHasBeenSuccessFullyIsDisplayed());
@@ -31,7 +31,7 @@ public class CheckOutTest extends CommonAPI {
         Assert.assertTrue(new NopCommerceHomePage(getDriver()).welcomeToOurStoreIsDisplayed());
     }
 
-    @Test(enabled = false) //2
+    @Test(enabled = false)
     public void testCheckMoneyOrderCheckout() {
         new RegisterLoginPage(getDriver()).registerAndLogin(String.valueOf(Day._31.getDayValue()), Month.December.getMonthValue(), Year._1999.getYearValue(), new Customer());
         new ItemsPage(getDriver()).buildComputerAndGoToCart(CPU.CPU_2.getProcessorOption(), Ram.RAM_OPTION_1.getRamOption(), HDD.HDD_2.getHDDOption(), OSOption.OS_OPTION_1.getOSOption());
@@ -42,20 +42,15 @@ public class CheckOutTest extends CommonAPI {
         Assert.assertTrue(new NopCommerceHomePage(getDriver()).welcomeToOurStoreIsDisplayed());
     }
 
-    @Test(enabled = false) //3
+    @Test(enabled = false)
     public void testMultipleItemsCheckOutWithCheckMoneyOrder() {
-        NopCommerceHomePage commerce = new NopCommerceHomePage(getDriver());
-        RegisterLoginPage register = new RegisterLoginPage(getDriver());
-        CheckOutPage checkOut = new CheckOutPage(getDriver());
-        CheckOutCompletePage complete = new CheckOutCompletePage(getDriver());
-        CartPage cart = new CartPage(getDriver());
-        register.registerAndLogin(String.valueOf(Day._31.getDayValue()), Month.December.getMonthValue(), Year._2000.getYearValue(), new Customer());
-        commerce.addMultipleItemsToCart(CPU.CPU_2.getProcessorOption(), Ram.RAM_OPTION_2.getRamOption(), HDD.HDD_1.getHDDOption(), OSOption.OS_OPTION_2.getOSOption());
-        cart.clickCheckOut();
-        checkOut.regUserCheckMoneyCheckout(new Customer(), new State());
-        Assert.assertTrue(complete.yourOrderHasBeenSuccessFullyIsDisplayed());
-        complete.clickBackToHomeButton();
-        Assert.assertTrue(commerce.welcomeToOurStoreIsDisplayed());
+        new RegisterLoginPage(getDriver()).registerAndLogin(String.valueOf(Day._31.getDayValue()), Month.December.getMonthValue(), Year._2000.getYearValue(), new Customer());
+        new NopCommerceHomePage(getDriver()).addMultipleItemsToCart(CPU.CPU_2.getProcessorOption(), Ram.RAM_OPTION_2.getRamOption(), HDD.HDD_1.getHDDOption(), OSOption.OS_OPTION_2.getOSOption());
+        new CartPage(getDriver()).clickCheckOut();
+        new CheckOutPage(getDriver()).regUserCheckMoneyCheckout(new Customer(), new State());
+        Assert.assertTrue(new CheckOutCompletePage(getDriver()).yourOrderHasBeenSuccessFullyIsDisplayed());
+        new CheckOutCompletePage(getDriver()).clickBackToHomeButton();
+        Assert.assertTrue(new NopCommerceHomePage(getDriver()).welcomeToOurStoreIsDisplayed());
     }
 
     @Test(enabled = false) //4
