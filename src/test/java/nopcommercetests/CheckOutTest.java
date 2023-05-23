@@ -1,6 +1,7 @@
 package nopcommercetests;
 
 import base.CommonAPI;
+import nopcommercedataproviders.NOPTestData;
 import nopcommerceenums.computeroptions.CPU;
 import nopcommerceenums.computeroptions.HDD;
 import nopcommerceenums.computeroptions.OSOption;
@@ -20,10 +21,10 @@ import org.testng.annotations.Test;
 
 public class CheckOutTest extends CommonAPI {
 
-    @Test(dataProvider = "testdata")
-    public void testCreditCardCheckout(String cpu, String ram, String hDD, String oS) {
+    @Test()
+    public void testCreditCardCheckout() {
         new RegisterLoginPage(getDriver()).registerAndLogin(String.valueOf(Day._10.getDayValue()), Month.April.getMonthValue(), Year._1994.getYearValue(), new Customer());
-        new ItemsPage(getDriver()).buildComputerAndGoToCart(cpu, ram, hDD, oS);
+        new ItemsPage(getDriver()).buildComputerAndGoToCart(CPU.CPU_2.getProcessorOption(), Ram.RAM_OPTION_1.getRamOption(), HDD.HDD_2.getHDDOption(), OSOption.OS_OPTION_1.getOSOption());
         new CartPage(getDriver()).clickCheckOut();
         new CheckOutPage(getDriver()).regUserCCCheckout(CCProvider.CARD_VISA.getCardProvider(), ExpMonth.July.getCardExpMonth(), ExpYear._2034.getCardExpYear(), new Customer(), new State());
         Assert.assertTrue(new CheckOutCompletePage(getDriver()).yourOrderHasBeenSuccessFullyIsDisplayed());
