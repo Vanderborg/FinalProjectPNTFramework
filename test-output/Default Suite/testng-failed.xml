@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Default Suite]" guice-stage="DEVELOPMENT">
+  <test thread-count="5" name="FinalProjectPNTFramework(failed)">
+    <classes>
+      <class name="nopcommercetests.RegisterLoginTest">
+        <methods>
+          <include name="endLOG"/>
+          <include name="loginWithOutRegister"/>
+          <include name="afterEachTestMethod"/>
+          <include name="loginWithSQLInjectionEmail"/>
+          <include name="registerWithNoEmailAndPassword"/>
+          <include name="registerWithWrongConfirmPassword"/>
+          <include name="enterWeakPassword"/>
+          <include name="loginWithSQLInjectionPassword"/>
+          <include name="extentSetup"/>
+          <include name="startExtent"/>
+          <include name="verifyUserInfoIsDisplayed"/>
+          <include name="tearDown"/>
+          <include name="registerAndLogin"/>
+          <include name="registerWithNoInput"/>
+          <include name="registerLoginWithDataProvider" invocation-numbers="0"/>
+          <include name="generateReport"/>
+          <include name="setUp"/>
+          <include name="forgotPasswordRecovery"/>
+          <include name="validRegister"/>
+        </methods>
+      </class> <!-- nopcommercetests.RegisterLoginTest -->
+    </classes>
+  </test> <!-- FinalProjectPNTFramework(failed) -->
+</suite> <!-- Failed suite [Default Suite] -->
