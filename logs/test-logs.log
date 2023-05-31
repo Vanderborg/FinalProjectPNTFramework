@@ -1,0 +1,347 @@
+01:22:41.912 [main] INFO  lumapages.HomePage - Sign in button is clicked
+01:22:42.933 [main] INFO  lumapages.AccountCreationPage - First name entered: Stephan
+01:22:42.996 [main] INFO  lumapages.AccountCreationPage - Last name entered: Beier
+01:22:43.062 [main] INFO  lumapages.AccountCreationPage - Email entered: fdrcxf60@gmail.com
+01:22:43.127 [main] INFO  lumapages.AccountCreationPage - Password entered
+01:22:43.180 [main] INFO  lumapages.AccountCreationPage - Password confirmation entered
+01:22:45.535 [main] INFO  lumapages.AccountCreationPage - Account creation form submitted
+01:22:45.536 [main] INFO  lumapages.AccountPage - Verifying account creation success message is displayed
+01:22:48.763 [main] INFO  lumapages.HomePage - Sign in button is clicked
+01:22:49.731 [main] INFO  lumapages.HomePage - Sign in button is clicked
+01:22:51.920 [main] INFO  lumapages.HomePage - What's New tab is clicked
+01:23:48.864 [main] INFO  lumapages.HomePage - Sign in button is clicked
+01:23:51.138 [main] INFO  lumapages.HomePage - Men's dropdown menu is clicked
+01:23:51.138 [main] INFO  lumapages.HomePage - Mens tab is clicked
+01:23:51.647 [main] INFO  lumapages.HomePage - Men's Tops tab is clicked.
+01:23:54.060 [main] INFO  lumapages.HomePage - Sinbad tank top is clicked.
+01:24:05.497 [main] INFO  lumapages.HomePage - Sign in button is clicked
+01:24:09.353 [main] INFO  lumapages.HomePage - T-shirt promotion box is clicked
+01:24:13.732 [main] INFO  lumapages.HomePage - Men's dropdown menu is clicked
+01:24:13.733 [main] INFO  lumapages.HomePage - Mens tab is clicked
+01:24:14.370 [main] INFO  lumapages.HomePage - Men's Tops tab is clicked.
+01:24:43.033 [main] INFO  lumapages.HomePage - Gear tab is clicked
+01:24:55.088 [main] INFO  lumapages.HomePage - Contact Us button is clicked
+01:25:00.685 [main] INFO  lumapages.HomePage - Sign in button is clicked
+01:25:01.651 [main] INFO  lumapages.AccountCreationPage - First name entered: Patty
+01:25:01.688 [main] INFO  lumapages.AccountCreationPage - Last name entered: Koch
+01:25:01.688 [main] INFO  lumapages.AccountCreationPage - Invalid account creation form filled
+01:25:01.738 [main] INFO  lumapages.AccountCreationPage - Account creation confirmation button clicked
+01:25:01.738 [main] INFO  lumapages.AccountCreationPage - Verifying if invalid account creation without email error is displayed
+01:25:01.764 [main] INFO  lumapages.AccountCreationPage - Verifying if invalid account creation without password error is displayed
+01:25:04.792 [main] INFO  lumapages.HomePage - Sign in button is clicked
+01:25:08.710 [main] INFO  lumapages.AccountPage - Clicks the Address Book tab
+01:25:11.988 [main] INFO  lumapages.AddressBookPage - 
+01:25:15.067 [main] INFO  lumapages.HomePage - Sign in button is clicked
+01:25:19.022 [main] INFO  lumapages.AccountPage - Clicks the Newsletter Subscriptions tab
+01:25:21.540 [main] INFO  lumapages.AccountPage - Verifying newsletter subscription confirmation is displayed
+01:25:24.503 [main] INFO  lumapages.HomePage - Hero hoodie is clicked
+01:25:47.875 [main] INFO  lumapages.HomePage - Sign in button is clicked
+01:25:49.692 [main] INFO  lumapages.HomePage - Account name is displayed on header
+01:25:52.974 [main] INFO  lumapages.HomePage - Sign in button is clicked
+01:25:56.955 [main] INFO  lumapages.AccountPage - Clicks the My Orders tab
+01:26:12.590 [main] INFO  lumapages.HomePage - Sign in button is clicked
+01:26:13.411 [main] INFO  lumapages.HomePage - Sign in button is clicked
+01:26:14.837 [main] INFO  lumapages.HomePage - Email is input into newsletter text field
+01:26:16.589 [main] INFO  lumapages.HomePage - Newsletter subscription button is selected.
+01:26:16.589 [main] INFO  lumapages.HomePage - We have saved your subscription is displayed
+01:26:19.650 [main] INFO  lumapages.HomePage - Sign in button is clicked
+01:26:21.844 [main] INFO  lumapages.HomePage - T-shirt promotion box is clicked
+01:27:06.070 [main] INFO  lumapages.HomePage - Sale tab is clicked.
+01:27:54.758 [main] INFO  lumapages.HomePage - Sign in button is clicked
+01:27:56.992 [main] INFO  lumapages.HomePage - Sale tab is clicked.
+01:28:53.041 [main] INFO  lumapages.HomePage - Advanced Search is clicked
+01:28:59.984 [main] INFO  lumapages.HomePage - Sign in button is clicked
+01:29:01.028 [main] INFO  lumapages.AccountCreationPage - First name entered: Rudy
+01:29:01.065 [main] INFO  lumapages.AccountCreationPage - Last name entered: Hyatt
+01:29:01.118 [main] INFO  lumapages.AccountCreationPage - Email entered: yxcosf87@gmail.com
+01:29:01.181 [main] INFO  lumapages.AccountCreationPage - Password entered
+01:29:01.232 [main] INFO  lumapages.AccountCreationPage - Password confirmation entered
+01:29:04.613 [main] INFO  lumapages.AccountCreationPage - Account creation form submitted
+01:29:05.818 [main] INFO  lumapages.AccountPage - Clicks the Address Book tab
+01:29:08.113 [main] INFO  lumapages.AccountPage - Clicks the Luma Home button
+01:29:08.612 [main] INFO  lumapages.HomePage - Sale tab is clicked.
+01:29:31.874 [main] INFO  lumapages.HomePage - Sale tab is clicked.
+01:30:01.788 [main] INFO  lumapages.HomePage - Sign in button is clicked
+01:30:06.455 [main] INFO  lumapages.HomePage - Sale tab is clicked.
+01:30:07.345 [main] INFO  lumapages.HomePage - Sign in button is clicked
+01:30:23.075 [main] INFO  lumapages.HomePage - Gear tab is clicked
+01:30:28.165 [main] INFO  lumapages.HomePage - Sign in button is clicked
+01:30:29.725 [main] INFO  lumapages.HomePage - Homepage displayed successfully
+01:30:32.964 [main] INFO  lumapages.HomePage - Sign in button is clicked
+01:30:35.080 [main] INFO  lumapages.HomePage - Gear tab is clicked
+01:30:42.439 [main] INFO  lumapages.HomePage - Sign in button is clicked
+01:30:43.257 [main] INFO  lumapages.HomePage - Sign in button is clicked
+01:30:45.250 [main] INFO  lumapages.HomePage - Men's dropdown menu is clicked
+01:30:45.250 [main] INFO  lumapages.HomePage - Mens tab is clicked
+01:30:45.937 [main] INFO  lumapages.HomePage - Men's Tops tab is clicked.
+01:30:51.297 [main] INFO  lumapages.HomePage - Men's Tees tab is clicked.
+01:31:22.365 [main] INFO  lumapages.HomePage - Product is input into search bar and clicks the search icon.
+01:31:51.346 [main] INFO  lumapages.HomePage - SKU is input into search bar and clicks the search icon.
+01:31:54.446 [main] INFO  lumapages.HomePage - Sign in button is clicked
+01:31:56.948 [main] INFO  lumapages.HomePage - T-shirt promotion box is clicked
+01:32:03.401 [main] INFO  lumapages.HomePage - Sign in button is clicked
+01:32:05.501 [main] INFO  lumapages.HomePage - Gear tab is clicked
+01:32:11.937 [main] INFO  lumapages.HomePage - Orders and return link is clicked.
+02:15:09.466 [main] INFO  lumapages.HomePage - Sign in button is clicked
+02:15:10.635 [main] INFO  lumapages.AccountCreationPage - First name entered: Ninfa
+02:15:10.679 [main] INFO  lumapages.AccountCreationPage - Last name entered: Paucek
+02:15:10.741 [main] INFO  lumapages.AccountCreationPage - Email entered: tfhqgm54@gmail.com
+02:15:10.807 [main] INFO  lumapages.AccountCreationPage - Password entered
+02:15:10.857 [main] INFO  lumapages.AccountCreationPage - Password confirmation entered
+02:15:13.771 [main] INFO  lumapages.AccountCreationPage - Account creation form submitted
+02:15:13.771 [main] INFO  lumapages.AccountPage - Verifying account creation success message is displayed
+02:15:17.039 [main] INFO  lumapages.HomePage - Sign in button is clicked
+02:15:17.839 [main] INFO  lumapages.HomePage - Sign in button is clicked
+02:15:19.863 [main] INFO  lumapages.HomePage - What's New tab is clicked
+02:15:23.969 [main] INFO  lumapages.HomePage - Sign in button is clicked
+02:15:27.266 [main] INFO  lumapages.HomePage - Men's dropdown menu is clicked
+02:15:27.266 [main] INFO  lumapages.HomePage - Mens tab is clicked
+02:15:27.977 [main] INFO  lumapages.HomePage - Men's Tops tab is clicked.
+02:15:28.621 [main] INFO  lumapages.HomePage - Sinbad tank top is clicked.
+02:15:40.025 [main] INFO  lumapages.HomePage - Sign in button is clicked
+02:15:44.045 [main] INFO  lumapages.HomePage - T-shirt promotion box is clicked
+02:15:47.118 [main] INFO  lumapages.HomePage - Men's dropdown menu is clicked
+02:15:47.118 [main] INFO  lumapages.HomePage - Mens tab is clicked
+02:15:48.004 [main] INFO  lumapages.HomePage - Men's Tops tab is clicked.
+02:15:49.531 [main] INFO  lumapages.HomePage - Sinbad tank top is clicked.
+02:16:02.211 [main] INFO  lumapages.HomePage - Gear tab is clicked
+02:16:15.114 [main] INFO  lumapages.HomePage - Contact Us button is clicked
+02:16:20.966 [main] INFO  lumapages.HomePage - Sign in button is clicked
+02:16:22.206 [main] INFO  lumapages.AccountCreationPage - First name entered: Wilbur
+02:16:22.244 [main] INFO  lumapages.AccountCreationPage - Last name entered: Wehner
+02:16:22.245 [main] INFO  lumapages.AccountCreationPage - Invalid account creation form filled
+02:16:22.292 [main] INFO  lumapages.AccountCreationPage - Account creation confirmation button clicked
+02:16:22.292 [main] INFO  lumapages.AccountCreationPage - Verifying if invalid account creation without email error is displayed
+02:16:22.318 [main] INFO  lumapages.AccountCreationPage - Verifying if invalid account creation without password error is displayed
+02:16:25.581 [main] INFO  lumapages.HomePage - Sign in button is clicked
+02:16:29.388 [main] INFO  lumapages.AccountPage - Clicks the Address Book tab
+02:16:33.138 [main] INFO  lumapages.AddressBookPage - 
+02:16:36.446 [main] INFO  lumapages.HomePage - Sign in button is clicked
+02:16:40.459 [main] INFO  lumapages.AccountPage - Clicks the Newsletter Subscriptions tab
+02:16:43.499 [main] INFO  lumapages.AccountPage - Verifying newsletter subscription confirmation is displayed
+02:16:46.450 [main] INFO  lumapages.HomePage - Hero hoodie is clicked
+02:17:10.322 [main] INFO  lumapages.HomePage - Sign in button is clicked
+02:17:12.139 [main] INFO  lumapages.HomePage - Account name is displayed on header
+02:17:15.767 [main] INFO  lumapages.HomePage - Sign in button is clicked
+02:17:21.111 [main] INFO  lumapages.AccountPage - Clicks the My Orders tab
+02:17:47.464 [main] INFO  lumapages.HomePage - Sign in button is clicked
+02:17:48.423 [main] INFO  lumapages.HomePage - Sign in button is clicked
+02:17:50.028 [main] INFO  lumapages.HomePage - Email is input into newsletter text field
+02:17:52.660 [main] INFO  lumapages.HomePage - Newsletter subscription button is selected.
+02:17:52.661 [main] INFO  lumapages.HomePage - We have saved your subscription is displayed
+02:17:55.703 [main] INFO  lumapages.HomePage - Sign in button is clicked
+02:17:57.985 [main] INFO  lumapages.HomePage - T-shirt promotion box is clicked
+02:18:36.921 [main] INFO  lumapages.HomePage - Sale tab is clicked.
+02:19:09.387 [main] INFO  lumapages.HomePage - Sign in button is clicked
+02:19:11.297 [main] INFO  lumapages.HomePage - Sale tab is clicked.
+02:19:47.146 [main] INFO  lumapages.HomePage - Advanced Search is clicked
+02:19:50.710 [main] INFO  lumapages.HomePage - Sign in button is clicked
+02:19:51.567 [main] INFO  lumapages.AccountCreationPage - First name entered: Mitsue
+02:19:51.607 [main] INFO  lumapages.AccountCreationPage - Last name entered: Armstrong
+02:19:51.662 [main] INFO  lumapages.AccountCreationPage - Email entered: krbrwy42@gmail.com
+02:19:51.727 [main] INFO  lumapages.AccountCreationPage - Password entered
+02:19:51.779 [main] INFO  lumapages.AccountCreationPage - Password confirmation entered
+02:19:54.068 [main] INFO  lumapages.AccountCreationPage - Account creation form submitted
+02:19:56.207 [main] INFO  lumapages.AccountPage - Clicks the Address Book tab
+02:19:58.692 [main] INFO  lumapages.AccountPage - Clicks the Luma Home button
+02:19:59.227 [main] INFO  lumapages.HomePage - Sale tab is clicked.
+02:20:24.672 [main] INFO  lumapages.HomePage - Sale tab is clicked.
+02:20:55.172 [main] INFO  lumapages.HomePage - Sign in button is clicked
+02:20:59.505 [main] INFO  lumapages.HomePage - Sale tab is clicked.
+02:21:00.324 [main] INFO  lumapages.HomePage - Sign in button is clicked
+02:21:16.418 [main] INFO  lumapages.HomePage - Gear tab is clicked
+02:21:22.216 [main] INFO  lumapages.HomePage - Sign in button is clicked
+02:21:24.131 [main] INFO  lumapages.HomePage - Homepage displayed successfully
+02:21:27.714 [main] INFO  lumapages.HomePage - Sign in button is clicked
+02:21:29.738 [main] INFO  lumapages.HomePage - Gear tab is clicked
+02:21:37.359 [main] INFO  lumapages.HomePage - Sign in button is clicked
+02:21:38.246 [main] INFO  lumapages.HomePage - Sign in button is clicked
+02:21:40.715 [main] INFO  lumapages.HomePage - Men's dropdown menu is clicked
+02:21:40.715 [main] INFO  lumapages.HomePage - Mens tab is clicked
+02:21:41.504 [main] INFO  lumapages.HomePage - Men's Tops tab is clicked.
+02:21:42.340 [main] INFO  lumapages.HomePage - Men's Tees tab is clicked.
+02:22:13.050 [main] INFO  lumapages.HomePage - Product is input into search bar and clicks the search icon.
+02:22:17.194 [main] INFO  lumapages.HomePage - SKU is input into search bar and clicks the search icon.
+02:22:20.339 [main] INFO  lumapages.HomePage - Sign in button is clicked
+02:22:22.766 [main] INFO  lumapages.HomePage - T-shirt promotion box is clicked
+02:22:29.252 [main] INFO  lumapages.HomePage - Sign in button is clicked
+02:22:32.136 [main] INFO  lumapages.HomePage - Gear tab is clicked
+02:22:41.264 [main] INFO  lumapages.HomePage - Orders and return link is clicked.
+02:23:29.436 [main] INFO  lumapages.HomePage - Sign in button is clicked
+02:23:30.588 [main] INFO  lumapages.AccountCreationPage - First name entered: Deshawn
+02:23:30.633 [main] INFO  lumapages.AccountCreationPage - Last name entered: O'Conner
+02:23:30.691 [main] INFO  lumapages.AccountCreationPage - Email entered: mcsecm67@gmail.com
+02:23:30.757 [main] INFO  lumapages.AccountCreationPage - Password entered
+02:23:30.808 [main] INFO  lumapages.AccountCreationPage - Password confirmation entered
+02:23:34.060 [main] INFO  lumapages.AccountCreationPage - Account creation form submitted
+02:23:34.060 [main] INFO  lumapages.AccountPage - Verifying account creation success message is displayed
+02:23:37.450 [main] INFO  lumapages.HomePage - Sign in button is clicked
+02:23:38.393 [main] INFO  lumapages.HomePage - Sign in button is clicked
+02:23:40.506 [main] INFO  lumapages.HomePage - What's New tab is clicked
+02:23:43.851 [main] INFO  lumapages.HomePage - Sign in button is clicked
+02:23:45.963 [main] INFO  lumapages.HomePage - Men's dropdown menu is clicked
+02:23:45.963 [main] INFO  lumapages.HomePage - Mens tab is clicked
+02:23:47.941 [main] INFO  lumapages.HomePage - Men's Tops tab is clicked.
+02:23:49.251 [main] INFO  lumapages.HomePage - Sinbad tank top is clicked.
+02:23:57.842 [main] INFO  lumapages.HomePage - Sign in button is clicked
+02:24:00.080 [main] INFO  lumapages.HomePage - T-shirt promotion box is clicked
+02:24:04.274 [main] INFO  lumapages.HomePage - Men's dropdown menu is clicked
+02:24:04.274 [main] INFO  lumapages.HomePage - Mens tab is clicked
+02:24:05.261 [main] INFO  lumapages.HomePage - Men's Tops tab is clicked.
+02:24:06.438 [main] INFO  lumapages.HomePage - Sinbad tank top is clicked.
+02:24:17.806 [main] INFO  lumapages.HomePage - Gear tab is clicked
+02:24:28.797 [main] INFO  lumapages.HomePage - Contact Us button is clicked
+02:24:34.966 [main] INFO  lumapages.HomePage - Sign in button is clicked
+02:24:35.882 [main] INFO  lumapages.AccountCreationPage - First name entered: Leora
+02:24:35.923 [main] INFO  lumapages.AccountCreationPage - Last name entered: Schinner
+02:24:35.923 [main] INFO  lumapages.AccountCreationPage - Invalid account creation form filled
+02:24:35.970 [main] INFO  lumapages.AccountCreationPage - Account creation confirmation button clicked
+02:24:35.971 [main] INFO  lumapages.AccountCreationPage - Verifying if invalid account creation without email error is displayed
+02:24:35.998 [main] INFO  lumapages.AccountCreationPage - Verifying if invalid account creation without password error is displayed
+02:24:39.328 [main] INFO  lumapages.HomePage - Sign in button is clicked
+02:24:43.298 [main] INFO  lumapages.AccountPage - Clicks the Address Book tab
+02:24:47.189 [main] INFO  lumapages.AddressBookPage - 
+02:24:50.481 [main] INFO  lumapages.HomePage - Sign in button is clicked
+02:24:54.425 [main] INFO  lumapages.AccountPage - Clicks the Newsletter Subscriptions tab
+02:24:58.333 [main] INFO  lumapages.AccountPage - Verifying newsletter subscription confirmation is displayed
+02:25:01.991 [main] INFO  lumapages.HomePage - Hero hoodie is clicked
+02:25:13.553 [main] INFO  lumapages.HomePage - Sign in button is clicked
+02:25:15.178 [main] INFO  lumapages.HomePage - Account name is displayed on header
+02:25:19.761 [main] INFO  lumapages.HomePage - Sign in button is clicked
+02:25:25.095 [main] INFO  lumapages.AccountPage - Clicks the My Orders tab
+02:25:44.367 [main] INFO  lumapages.HomePage - Sign in button is clicked
+02:25:45.339 [main] INFO  lumapages.HomePage - Sign in button is clicked
+02:25:47.233 [main] INFO  lumapages.HomePage - Email is input into newsletter text field
+02:25:49.632 [main] INFO  lumapages.HomePage - Newsletter subscription button is selected.
+02:25:49.633 [main] INFO  lumapages.HomePage - We have saved your subscription is displayed
+02:25:52.719 [main] INFO  lumapages.HomePage - Sign in button is clicked
+02:25:54.830 [main] INFO  lumapages.HomePage - T-shirt promotion box is clicked
+02:26:27.010 [main] INFO  lumapages.HomePage - Sale tab is clicked.
+02:27:06.084 [main] INFO  lumapages.HomePage - Sign in button is clicked
+02:27:08.101 [main] INFO  lumapages.HomePage - Sale tab is clicked.
+02:27:42.193 [main] INFO  lumapages.HomePage - Advanced Search is clicked
+02:27:46.002 [main] INFO  lumapages.HomePage - Sign in button is clicked
+02:27:47.054 [main] INFO  lumapages.AccountCreationPage - First name entered: Zona
+02:27:47.094 [main] INFO  lumapages.AccountCreationPage - Last name entered: Mosciski
+02:27:47.148 [main] INFO  lumapages.AccountCreationPage - Email entered: nwcmrz61@gmail.com
+02:27:47.211 [main] INFO  lumapages.AccountCreationPage - Password entered
+02:27:47.265 [main] INFO  lumapages.AccountCreationPage - Password confirmation entered
+02:27:50.702 [main] INFO  lumapages.AccountCreationPage - Account creation form submitted
+02:27:52.399 [main] INFO  lumapages.AccountPage - Clicks the Address Book tab
+02:27:54.767 [main] INFO  lumapages.AccountPage - Clicks the Luma Home button
+02:27:55.341 [main] INFO  lumapages.HomePage - Sale tab is clicked.
+02:28:20.666 [main] INFO  lumapages.HomePage - Sale tab is clicked.
+02:28:51.573 [main] INFO  lumapages.HomePage - Sign in button is clicked
+02:28:55.842 [main] INFO  lumapages.HomePage - Sale tab is clicked.
+02:28:56.677 [main] INFO  lumapages.HomePage - Sign in button is clicked
+02:29:10.027 [main] INFO  lumapages.HomePage - Gear tab is clicked
+02:29:14.461 [main] INFO  lumapages.HomePage - Sign in button is clicked
+02:29:15.849 [main] INFO  lumapages.HomePage - Homepage displayed successfully
+02:29:18.912 [main] INFO  lumapages.HomePage - Sign in button is clicked
+02:29:20.941 [main] INFO  lumapages.HomePage - Gear tab is clicked
+02:29:27.537 [main] INFO  lumapages.HomePage - Sign in button is clicked
+02:29:28.340 [main] INFO  lumapages.HomePage - Sign in button is clicked
+02:29:30.280 [main] INFO  lumapages.HomePage - Men's dropdown menu is clicked
+02:29:30.281 [main] INFO  lumapages.HomePage - Mens tab is clicked
+02:29:30.913 [main] INFO  lumapages.HomePage - Men's Tops tab is clicked.
+02:29:31.693 [main] INFO  lumapages.HomePage - Men's Tees tab is clicked.
+02:29:39.668 [main] INFO  lumapages.HomePage - Product is input into search bar and clicks the search icon.
+02:29:43.321 [main] INFO  lumapages.HomePage - SKU is input into search bar and clicks the search icon.
+02:29:46.219 [main] INFO  lumapages.HomePage - Sign in button is clicked
+02:29:48.479 [main] INFO  lumapages.HomePage - T-shirt promotion box is clicked
+02:29:52.516 [main] INFO  lumapages.HomePage - Sign in button is clicked
+02:29:54.557 [main] INFO  lumapages.HomePage - Gear tab is clicked
+02:30:00.607 [main] INFO  lumapages.HomePage - Orders and return link is clicked.
+02:55:39.050 [main] INFO  lumapages.HomePage - Sign in button is clicked
+02:55:40.397 [main] INFO  lumapages.AccountCreationPage - First name entered: Sumiko
+02:55:40.440 [main] INFO  lumapages.AccountCreationPage - Last name entered: Streich
+02:55:40.487 [main] INFO  lumapages.AccountCreationPage - Email entered: Password
+02:55:40.547 [main] INFO  lumapages.AccountCreationPage - Password entered
+02:55:40.595 [main] INFO  lumapages.AccountCreationPage - Password confirmation entered
+02:55:40.646 [main] INFO  lumapages.AccountCreationPage - Account creation form submitted
+02:58:55.094 [main] INFO  lumapages.HomePage - Sign in button is clicked
+02:58:57.159 [main] INFO  lumapages.AccountCreationPage - First name entered: Joseph
+02:58:57.200 [main] INFO  lumapages.AccountCreationPage - Last name entered: Rau
+02:58:57.245 [main] INFO  lumapages.AccountCreationPage - Email entered: Password
+02:58:57.305 [main] INFO  lumapages.AccountCreationPage - Password entered
+02:58:57.350 [main] INFO  lumapages.AccountCreationPage - Password confirmation entered
+02:58:57.400 [main] INFO  lumapages.AccountCreationPage - Account creation form submitted
+02:58:57.400 [main] INFO  lumapages.AccountPage - Verifying account creation success message is displayed
+03:06:19.916 [main] INFO  lumapages.HomePage - Sign in button is clicked
+03:07:13.135 [main] INFO  lumapages.HomePage - Sign in button is clicked
+03:07:51.949 [main] INFO  lumapages.HomePage - Sign in button is clicked
+03:08:59.089 [main] INFO  lumapages.HomePage - Sign in button is clicked
+03:09:02.985 [main] INFO  lumapages.HomePage - Homepage displayed successfully
+03:21:12.869 [main] INFO  lumapages.HomePage - Sign in button is clicked
+03:21:22.021 [main] INFO  lumapages.AccountCreationPage - First name entered: Trista
+03:21:22.070 [main] INFO  lumapages.AccountCreationPage - Last name entered: Bergnaum
+03:21:22.132 [main] INFO  lumapages.AccountCreationPage - Email entered: xseujb61@gmail.com
+03:21:22.198 [main] INFO  lumapages.AccountCreationPage - Password entered
+03:21:22.248 [main] INFO  lumapages.AccountCreationPage - Password confirmation entered
+03:22:13.878 [main] INFO  lumapages.AccountCreationPage - Account creation form submitted
+03:22:13.878 [main] INFO  lumapages.AccountPage - Verifying account creation success message is displayed
+03:22:36.851 [main] INFO  lumapages.HomePage - Sign in button is clicked
+03:32:34.854 [main] INFO  lumapages.HomePage - Sign in button is clicked
+03:32:44.910 [main] INFO  lumapages.HomePage - Homepage displayed successfully
+03:32:55.936 [main] INFO  lumapages.HomePage - Sign in button is clicked
+03:33:01.864 [main] INFO  lumapages.HomePage - Sign in button is clicked
+03:33:10.050 [main] INFO  lumapages.HomePage - Email is input into newsletter text field
+03:33:36.806 [main] INFO  lumapages.HomePage - Newsletter subscription button is selected.
+03:33:36.806 [main] INFO  lumapages.HomePage - We have saved your subscription is displayed
+03:33:43.914 [main] INFO  lumapages.HomePage - Orders and return link is clicked.
+03:37:20.890 [main] INFO  lumapages.HomePage - Sign in button is clicked
+03:37:31.939 [main] INFO  lumapages.HomePage - Homepage displayed successfully
+03:37:45.880 [main] INFO  lumapages.HomePage - Sign in button is clicked
+03:37:55.825 [main] INFO  lumapages.HomePage - Sign in button is clicked
+03:38:09.970 [main] INFO  lumapages.HomePage - Email is input into newsletter text field
+03:38:29.887 [main] INFO  lumapages.HomePage - Newsletter subscription button is selected.
+03:38:29.887 [main] INFO  lumapages.HomePage - We have saved your subscription is displayed
+03:38:40.807 [main] INFO  lumapages.HomePage - Orders and return link is clicked.
+04:02:06.005 [main] INFO  lumapages.HomePage - Sign in button is clicked
+04:02:09.050 [main] INFO  lumapages.HomePage - Homepage displayed successfully
+04:02:15.096 [main] INFO  lumapages.HomePage - Sign in button is clicked
+04:02:17.966 [main] INFO  lumapages.HomePage - Sign in button is clicked
+04:02:20.124 [main] INFO  lumapages.HomePage - Email is input into newsletter text field
+04:02:25.247 [main] INFO  lumapages.HomePage - Newsletter subscription button is selected.
+04:02:25.247 [main] INFO  lumapages.HomePage - We have saved your subscription is displayed
+04:02:28.025 [main] INFO  lumapages.HomePage - Orders and return link is clicked.
+04:04:52.124 [main] INFO  lumapages.HomePage - Sign in button is clicked
+04:04:53.933 [main] INFO  lumapages.HomePage - Homepage displayed successfully
+04:04:57.061 [main] INFO  lumapages.HomePage - Sign in button is clicked
+04:04:57.995 [main] INFO  lumapages.HomePage - Sign in button is clicked
+04:04:59.356 [main] INFO  lumapages.HomePage - Email is input into newsletter text field
+04:05:04.061 [main] INFO  lumapages.HomePage - Newsletter subscription button is selected.
+04:05:04.061 [main] INFO  lumapages.HomePage - We have saved your subscription is displayed
+04:05:06.778 [main] INFO  lumapages.HomePage - Orders and return link is clicked.
+04:06:43.076 [main] INFO  lumapages.HomePage - Sign in button is clicked
+04:06:44.637 [main] INFO  lumapages.HomePage - Homepage displayed successfully
+04:06:47.832 [main] INFO  lumapages.HomePage - Sign in button is clicked
+04:06:48.772 [main] INFO  lumapages.HomePage - Sign in button is clicked
+04:06:50.319 [main] INFO  lumapages.HomePage - Email is input into newsletter text field
+04:06:55.124 [main] INFO  lumapages.HomePage - Newsletter subscription button is selected.
+04:06:55.124 [main] INFO  lumapages.HomePage - We have saved your subscription is displayed
+04:06:58.245 [main] INFO  lumapages.HomePage - Orders and return link is clicked.
+04:09:04.971 [main] INFO  lumapages.HomePage - Sign in button is clicked
+04:09:09.094 [main] INFO  lumapages.HomePage - Homepage displayed successfully
+04:09:13.091 [main] INFO  lumapages.HomePage - Sign in button is clicked
+04:09:15.087 [main] INFO  lumapages.HomePage - Sign in button is clicked
+04:09:18.991 [main] INFO  lumapages.HomePage - Email is input into newsletter text field
+04:09:27.044 [main] INFO  lumapages.HomePage - Newsletter subscription button is selected.
+04:09:27.044 [main] INFO  lumapages.HomePage - We have saved your subscription is displayed
+04:09:30.024 [main] INFO  lumapages.HomePage - Orders and return link is clicked.
+04:12:03.069 [main] INFO  lumapages.HomePage - Sign in button is clicked
+04:12:04.799 [main] INFO  lumapages.HomePage - Homepage displayed successfully
+04:12:08.146 [main] INFO  lumapages.HomePage - Sign in button is clicked
+04:12:09.140 [main] INFO  lumapages.HomePage - Sign in button is clicked
+04:12:10.991 [main] INFO  lumapages.HomePage - Email is input into newsletter text field
+04:12:15.871 [main] INFO  lumapages.HomePage - Newsletter subscription button is selected.
+04:12:15.871 [main] INFO  lumapages.HomePage - We have saved your subscription is displayed
+04:12:18.718 [main] INFO  lumapages.HomePage - Orders and return link is clicked.
+04:20:35.473 [main] INFO  lumapages.HomePage - Sign in button is clicked
+04:20:37.275 [main] INFO  lumapages.HomePage - Homepage displayed successfully
+04:20:40.547 [main] INFO  lumapages.HomePage - Sign in button is clicked
+04:20:41.460 [main] INFO  lumapages.HomePage - Sign in button is clicked
+04:20:43.180 [main] INFO  lumapages.HomePage - Email is input into newsletter text field
+04:20:47.313 [main] INFO  lumapages.HomePage - Newsletter subscription button is selected.
+04:20:47.313 [main] INFO  lumapages.HomePage - We have saved your subscription is displayed
+04:20:50.066 [main] INFO  lumapages.HomePage - Orders and return link is clicked.

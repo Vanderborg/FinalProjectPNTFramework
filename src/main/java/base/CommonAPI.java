@@ -38,18 +38,19 @@ import java.text.SimpleDateFormat;
 import java.time.Duration;
 import java.util.*;
 import java.util.List;
+import java.util.Date;
 
 
 public class CommonAPI {
 
-    private final Logger LOG = LoggerFactory.getLogger(CommonAPI.class);
+    Logger LOG = LoggerFactory.getLogger(CommonAPI.class);
     Properties prop = Utility.loadProperties();
     String duration = prop.getProperty("implicit.wait", "25");
 
     String maximizeBrowser = prop.getProperty("maximize.browser", "true");
-    String takeScreenshot = prop.getProperty("take.screenshots", "true");
     String browserstackUsername = prop.getProperty("browserstack.username");
     String browserstackPassword = prop.getProperty("browserstack.password");
+    String takeScreenshots = prop.getProperty("take.screenshots", "false");
 
     public static String currentDir = System.getProperty("user.dir");
 
@@ -99,8 +100,9 @@ public class CommonAPI {
         ExtentTestManager.endTest();
         extent.flush();
 
-        if (takeScreenshot.equalsIgnoreCase("true")) {
+        if (takeScreenshots.equalsIgnoreCase("true")) {
             if (result.getStatus() == ITestResult.FAILURE) {
+                System.out.println("************************************test fail take screenshot");
                 takeScreenshot(result.getName());
             }
         }
@@ -151,35 +153,30 @@ public class CommonAPI {
         }
     }
 
-    public void getCloudDriver(String envName, String envUsername, String envAccessKey, String os, String osVersion, String browser, String browserVersion) throws MalformedURLException {
+    public static void getCloudDriver(String envName, String envUsername, String envAccessKey, String os, String osVersion, String browser, String browserVersion) throws MalformedURLException {
         DesiredCapabilities cap = new DesiredCapabilities();
         cap.setCapability("os", os);
         cap.setCapability("os_version", osVersion);
         cap.setCapability("browser", browser);
         cap.setCapability("browser_version", browserVersion);
 
-        if(envName.equalsIgnoreCase("")){
-            driver = new RemoteWebDriver(new URL("https://" + envUsername + ":" + envAccessKey + "@ondemand.saucelabs.com:80/wd/hub"), cap);
-        } else if (envName.equalsIgnoreCase("browserstack")) {
+        if (envName.equalsIgnoreCase("browserstack")) {
             driver = new RemoteWebDriver(new URL("https://" + envUsername + ":" + envAccessKey + "@hub-cloud.browserstack.com/wd/hub"), cap);
         }
     }
 
-    @Parameters({"useCloudEnv","envName","os", "osVersion", "browser", "browserVersion", "url"})
+    @Parameters({"useCloudEnv", "envName", "os", "osVersion", "browser", "browserVersion", "url"})
     @BeforeMethod
     public void setUp(@Optional("false") boolean useCloudEnv, @Optional("browserstack") String envName,
                       @Optional("windows") String os, @Optional("10") String osVersion, @Optional("chrome") String browserName,
                       @Optional("102") String browserVersion, @Optional("https://www.google.com") String url) throws MalformedURLException {
 
-        if (useCloudEnv == true) {
+        if (useCloudEnv) {
             if (envName.equalsIgnoreCase("browserstack")) {
-                getCloudDriver(envName, Utility.decode(browserstackUsername), Utility.decode(browserstackPassword), os, osVersion, browserName, browserVersion);
-
-            } else if (envName.equalsIgnoreCase("")) {
-                getCloudDriver(envName, "", "", os, osVersion, browserName, browserVersion);
-
+                String browserstackUsername = "davidmorales_mRUaoQ";
+                String browserstackAccessKey = "oH6qF4DHvpg245yWPfA6";
+                getCloudDriver(envName, browserstackUsername, browserstackAccessKey, os, osVersion, browserName, browserVersion);
             }
-
         } else {
             getLocalDriver(browserName, os);
         }
@@ -405,21 +402,16 @@ public class CommonAPI {
             e.printStackTrace();
         }
     }
-
     public void takeScreenshot(String screenshotName){
-        DateFormat df = new SimpleDateFormat("(MM.dd.yyyy-HH:mma)");
+        DateFormat df = new SimpleDateFormat("(MM.dd.yyyy)");
         Date date = new Date();
         df.format(date);
 
-        File file = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+        File file = ((TakesScreenshot)getDriver()).getScreenshotAs(OutputType.FILE);
         try {
-            FileUtils.copyFile(file, new File(System.getProperty("user.dir")+File.pathSeparator+ "screenshots"+File.pathSeparator+screenshotName+" "+df.format(date)+".png"));
-
-            LOG.info("Screenshot captured");
-        } catch (Exception e) {
-            String path = System.getProperty("user.dir")+ "/screenshots/"+screenshotName+" "+df.format(date)+".png";
-            LOG.info(path);
-            LOG.info("Exception while taking screenshot "+e.getMessage());
+            FileUtils.copyFile(file,new File(Utility.currentDir + "\\screenshots\\"+df.format(date)+ screenshotName+".png"));
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 }

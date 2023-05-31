@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Default Suite]" guice-stage="DEVELOPMENT">
+  <test thread-count="5" name="FinalProjectFrameWork(failed)">
+    <classes>
+      <class name="lumatests.LumaTest">
+        <methods>
+          <include name="endLOG"/>
+          <include name="afterEachTestMethod"/>
+          <include name="tearDown"/>
+          <include name="registerWithDataProvider" invocation-numbers="0"/>
+          <include name="subscribeToNewsletter"/>
+          <include name="generateReport"/>
+          <include name="extentSetup"/>
+          <include name="setUp"/>
+          <include name="startExtent"/>
+          <include name="viewPreviousOrder"/>
+        </methods>
+      </class> <!-- lumatests.LumaTest -->
+    </classes>
+  </test> <!-- FinalProjectFrameWork(failed) -->
+</suite> <!-- Failed suite [Default Suite] -->
