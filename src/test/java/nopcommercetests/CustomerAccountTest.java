@@ -1,51 +1,47 @@
 package nopcommercetests;
 
 import base.CommonAPI;
-import nopcommerceenums.datesoptions.Day;
-import nopcommerceenums.datesoptions.Month;
-import nopcommerceenums.datesoptions.Year;
-import nopcommerceobjects.Customer;
-import nopcommercepages.MyAccountPage;
-import nopcommercepages.NopCommerceHomePage;
-import nopcommercepages.ProductReviewsPage;
-import nopcommercepages.RegisterLoginPage;
+import nopcommerce.nopcommercepages.MyAccountPage;
+import nopcommerce.nopcommercepages.NopCommerceHomePage;
+import nopcommerce.nopcommercepages.ProductReviewsPage;
+import nopcommerce.nopcommercepages.RegisterLoginPage;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class CustomerAccountTest extends CommonAPI {
 
-    @Test()
+    @Test(priority = 1)
     public void testReviewItem() {
+        RegisterLoginPage login = new RegisterLoginPage(getDriver());
         NopCommerceHomePage commerce = new NopCommerceHomePage(getDriver());
-        RegisterLoginPage register = new RegisterLoginPage(getDriver());
-        ProductReviewsPage review = new ProductReviewsPage(getDriver());
         MyAccountPage account = new MyAccountPage(getDriver());
-        register.registerAndLogin(String.valueOf(Day._10.getDayValue()), Month.April.getMonthValue(), Year._1994.getYearValue(), new Customer());
+        ProductReviewsPage product = new ProductReviewsPage(getDriver());
+        login.registerAndLogin();
         commerce.clickAppleMacLinkAddReview();
-        Assert.assertTrue(review.reviewWasAdded());
+        Assert.assertTrue(product.reviewWasAdded());
         commerce.clickMyAccount();
         account.clickCustomerAccountReviews();
         Assert.assertTrue(account.checkReviewItemHead());
     }
 
-    @Test()
+    @Test(priority = 2)
     public void testAddNewAddress() {
+        RegisterLoginPage login = new RegisterLoginPage(getDriver());
         NopCommerceHomePage commerce = new NopCommerceHomePage(getDriver());
-        RegisterLoginPage register = new RegisterLoginPage(getDriver());
         MyAccountPage account = new MyAccountPage(getDriver());
-        register.registerAndLogin(String.valueOf(Day._7.getDayValue()), Month.November.getMonthValue(), Year._1996.getYearValue(), new Customer());
+        login.registerAndLogin();
         commerce.clickMyAccount();
         account.addCustomerAddress();
         Assert.assertTrue(account.verifyAddressTextIsDisplayed());
         Assert.assertTrue(account.verifyAddressIsAdded());
     }
 
-    @Test()
+    @Test(priority = 3)
     public void testAddNewAddressAndDelete() {
+        RegisterLoginPage login = new RegisterLoginPage(getDriver());
         NopCommerceHomePage commerce = new NopCommerceHomePage(getDriver());
-        RegisterLoginPage register = new RegisterLoginPage(getDriver());
         MyAccountPage account = new MyAccountPage(getDriver());
-        register.registerAndLogin(String.valueOf(Day._7.getDayValue()), Month.November.getMonthValue(), Year._1996.getYearValue(), new Customer());
+        login.registerAndLogin();
         commerce.clickMyAccount();
         account.addCustomerAddress();
         Assert.assertTrue(account.verifyAddressTextIsDisplayed());
@@ -54,36 +50,35 @@ public class CustomerAccountTest extends CommonAPI {
         Assert.assertTrue(account.verifyNoAddresses());
     }
 
-    @Test()
+    @Test(priority = 4)
     public void testChangeCustomerInfo() {
+        RegisterLoginPage login = new RegisterLoginPage(getDriver());
         NopCommerceHomePage commerce = new NopCommerceHomePage(getDriver());
-        RegisterLoginPage register = new RegisterLoginPage(getDriver());
-        register.registerAndLogin(String.valueOf(Day._7.getDayValue()), Month.November.getMonthValue(), Year._1996.getYearValue(), new Customer());
         MyAccountPage account = new MyAccountPage(getDriver());
+        login.registerAndLogin();
         commerce.clickMyAccount();
         account.clickCustomerInfo();
-        register.changeCustomerInfo(String.valueOf(Day._10.getDayValue()), Month.April.getMonthValue(), Year._1994.getYearValue(), new Customer());
-        Assert.assertTrue(register.verifyCustomerInfoTextIsDisplayed());
-        captureScreenshot();
+        login.changeCustomerInfo();
+        Assert.assertTrue(login.verifyCustomerInfoTextIsDisplayed());
     }
 
-    @Test()
+    @Test(priority = 5)
     public void testChangeOldPasswordWithNewOne() {
+        RegisterLoginPage login = new RegisterLoginPage(getDriver());
         NopCommerceHomePage commerce = new NopCommerceHomePage(getDriver());
-        RegisterLoginPage register = new RegisterLoginPage(getDriver());
         MyAccountPage account = new MyAccountPage(getDriver());
-        register.registerAndLogin(String.valueOf(Day._7.getDayValue()), Month.November.getMonthValue(), Year._1996.getYearValue(), new Customer());
+        login.registerAndLogin();
         commerce.clickMyAccount();
         account.changeOldPasswordToNewOne();
         Assert.assertTrue(account.verifyPasswordChanged());
     }
 
-    @Test()
+    @Test(priority = 6)
     public void testChangePasswordLogoutLogBackIn() {
+        RegisterLoginPage login = new RegisterLoginPage(getDriver());
         NopCommerceHomePage commerce = new NopCommerceHomePage(getDriver());
-        RegisterLoginPage register = new RegisterLoginPage(getDriver());
         MyAccountPage account = new MyAccountPage(getDriver());
-        register.registerAndLogin(String.valueOf(Day._1.getDayValue()), Month.January.getMonthValue(), Year._1996.getYearValue(), new Customer());
+        login.registerAndLogin();
         commerce.clickMyAccount();
         account.changeOldPasswordToNewOne();
         Assert.assertTrue(account.verifyPasswordChanged());
