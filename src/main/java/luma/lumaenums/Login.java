@@ -1,3 +1,4 @@
+
 package luma.lumaenums;
 import com.github.javafaker.Faker;
 

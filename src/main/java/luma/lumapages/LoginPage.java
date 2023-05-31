@@ -1,3 +1,4 @@
+
 package luma.lumapages;
 
 import base.CommonAPI;
@@ -8,6 +9,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import utility.ConnectDB;
+import utility.ExcelReader;
 
 public class LoginPage extends CommonAPI {
 
@@ -77,6 +79,20 @@ public class LoginPage extends CommonAPI {
         LOG.info("Entered email from data provider: " + dataEmail);
         type(passwordField, dataPassword);
         LOG.info("Entered password from data provider");
+        click(signInBttn);
+        LOG.info("Clicked on Sign In Button");
+    }
+
+    public void excelLogin() {
+        String email = new ExcelReader("C:\\Users\\acekn\\Downloads\\DataProvider.xlsx").getDataFromCell("Sheet1", 1, 0);
+        String password = new ExcelReader("C:\\Users\\acekn\\Downloads\\DataProvider.xlsx").getDataFromCell("Sheet1", 1, 1);
+        LOG.info("Performing customer login");
+        new HomePage(getDriver()).navigateToSignIn();
+        LOG.info("Clicked on Sign In Button");
+        type(emailField, email);
+        LOG.info("Entered email: " + email);
+        type(passwordField, password);
+        LOG.info("Entered password");
         click(signInBttn);
         LOG.info("Clicked on Sign In Button");
     }

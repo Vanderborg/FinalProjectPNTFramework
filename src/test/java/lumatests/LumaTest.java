@@ -19,7 +19,7 @@ public class LumaTest extends CommonAPI {
         Assert.assertTrue(sin.verifyAddedToCart());
     }
 
-    @Test(enabled = true)//2
+    @Test(enabled = false)//2
     public void subscribeToNewsletter() {
         HomePage home = new HomePage(getDriver());
         LoginPage gologin = new LoginPage(getDriver());
@@ -28,7 +28,7 @@ public class LumaTest extends CommonAPI {
         Assert.assertTrue(home.verifyNewsletterSubscription());
     }
 
-    @Test(enabled = true)//3
+    @Test(enabled = false)//3
     public void viewPreviousOrder() {
         HomePage home = new HomePage(getDriver());
         OrdersAndReturnsPage order = new OrdersAndReturnsPage(getDriver());
@@ -400,7 +400,7 @@ public class LumaTest extends CommonAPI {
         Assert.assertTrue(acc.verifyInvalidAccountCreationWithoutPassword());
     }
 
-    @Test(enabled = false)//28
+    @Test(enabled = true)//28
     public void editNewsletterSubscription() {
         LoginPage login = new LoginPage(getDriver());
         AccountPage acc = new AccountPage(getDriver());
@@ -443,11 +443,19 @@ public class LumaTest extends CommonAPI {
         Assert.assertTrue(success.verifyReceiptFromOrder());
     }
 
-    @Test(dataProvider = "Login", dataProviderClass = DataProviderLuma.class)
-    public void registerWithDataProvider(String dataEmail, String dataPassword) {
+    @Test(enabled = true, dataProvider = "Login", dataProviderClass = DataProviderLuma.class)
+    public void loginWithDataProvider(String dataEmail, String dataPassword) {
         LoginPage login = new LoginPage(getDriver());
         HomePage home = new HomePage(getDriver());
         login.loginWithDataProvider(dataEmail, dataPassword);
+        Assert.assertTrue(home.verifyLoggedIn());
+    }
+
+    @Test(enabled = false)
+    public void loginWithExcel() {
+        LoginPage login = new LoginPage(getDriver());
+        HomePage home = new HomePage(getDriver());
+        login.excelLogin();
         Assert.assertTrue(home.verifyLoggedIn());
     }
 }
